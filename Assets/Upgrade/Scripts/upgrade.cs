@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class upgrade : MonoBehaviour {
+public class Upgrade : MonoBehaviour {
 
 	public int weapon_id ;
+	public int kostum_id ;
 
 	public void pilihWeapon(){
 		switch (weapon_id) {
@@ -12,7 +13,14 @@ public class upgrade : MonoBehaviour {
 			Framework_GameManager.playerData.weapon = Weapon.SPEAR;
 			break;
 		
-	
 		}
 	}
+
+	public void pilihKostum(){
+		switch (kostum_id) {
+
+		}
+	}
+
+
 }
