@@ -3,22 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour {
-
+	
 	public Rigidbody2D rb;
 	public Rigidbody2D hook;
-
+	SpringJoint2D sj2d;
 	public float releaseTime = .15f;
 	public float maxDragDistance = 2f;
 
 
-	private bool isPressed = false;
+	public bool isPressed = false;
 
 	void Start(){
+		sj2d = GetComponent<SpringJoint2D> ();
+		sj2d.connectedBody = hook;
 		gameObject.transform.position = new Vector2 (hook.transform.position.x,hook.transform.position.y);
+
 	}
 
 	void Update ()
 	{
+		
+		
 		if (isPressed)
 		{
 			Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -53,6 +58,9 @@ public class Projectile : MonoBehaviour {
 
 		yield return new WaitForSeconds(2f);
 
+	}
+	void Dead(){
+		Destroy (gameObject);
 	}
 
 }
