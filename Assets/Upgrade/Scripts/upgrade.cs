@@ -4,25 +4,13 @@ using UnityEngine;
 
 public class Upgrade : MonoBehaviour {
 
-	public int weapon_id ;
-	public int kostum_id ;
-
-	public void pilihWeapon(){
-		switch (weapon_id) {
-		case 1:
-			Framework_GameManager.playerData.weapon = Weapon.SPEAR;
-			break;
-		case 2:
-			Framework_GameManager.playerData.weapon = Weapon.SPEAR;
-			break;
-		}
+	// Use this for initialization
+	void Start () {
+		
 	}
-
-	public void pilihKostum(){
-		switch (kostum_id) {
-
-		}
+	
+	// Update is called once per frame
+	void Update () {
+		
 	}
-
-
 }

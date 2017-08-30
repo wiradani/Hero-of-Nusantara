@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class WeaponPad : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	public Framework_Weapon weapon;
+
+
 }

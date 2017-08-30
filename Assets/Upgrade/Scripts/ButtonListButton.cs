@@ -8,8 +8,12 @@ public class ButtonListButton : MonoBehaviour {
 	[SerializeField]
 	private Text myText;
 
-	public void setText(string textString){
-		myText.text = textString;
+	public Framework_Weapon weapon;
+
+	public void setText(Framework_Weapon id){
+		weapon = id;
+		myText.text = weapon.name;
+
 	}
 
 	public void onClick(){

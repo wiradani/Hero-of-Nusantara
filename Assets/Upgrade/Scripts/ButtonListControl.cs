@@ -9,13 +9,15 @@ public class ButtonListControl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		for(int i=0;i<=20;i++){
+		for(int i=0;i<=Framework_GameManager.weaponDatabase.Count;i++){
 			GameObject button = Instantiate (buttonTemplate) as GameObject;
 			button.SetActive (true);
 
-			button.GetComponent<ButtonListButton> ().setText ("button #" + i);
+			button.GetComponent<ButtonListButton> ().setText (Framework_GameManager.weaponDatabase[i]);
 
 			button.transform.SetParent (buttonTemplate.transform.parent, false);
+		
+			
 		}
 	}
 
