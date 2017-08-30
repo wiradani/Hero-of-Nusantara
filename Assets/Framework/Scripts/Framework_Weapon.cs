@@ -17,4 +17,8 @@ public class Framework_Weapon
         purchased = _purchased;
         cost = _cost;
     }
+
+    public Framework_Weapon()
+    {
+    }
 }

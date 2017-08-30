@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Framework_GameManager : MonoBehaviour
 {
+    public static Framework_GameManager instance;
+
     public static Framework_PlayerData playerData;
     public static List<Framework_Weapon> weaponDatabase = new List <Framework_Weapon>();
     public static List<Framework_Enemy> enemyDatabase = new List<Framework_Enemy>();
@@ -14,9 +16,11 @@ public class Framework_GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        instance = this;
+
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
+
         SetDatabase();
-        SceneManager.LoadScene("Upgrade", LoadSceneMode.Additive);
-        Framework_MasterCamera.instance.DeleteCameras();
     }
 	
     // Update is called once per frame
@@ -44,8 +48,15 @@ public class Framework_GameManager : MonoBehaviour
     public void GoToArena()
     {
         currentLevel = levelDatabase[0];
-
+        SceneManager.UnloadSceneAsync("MainMenu");
         SceneManager.LoadScene("Musuh", LoadSceneMode.Additive);
+        Framework_MasterCamera.instance.DeleteCameras();
+    }
+
+    public void GoToUpgrade()
+    {
+        SceneManager.UnloadSceneAsync("MainMenu");
+        SceneManager.LoadScene("Upgrade", LoadSceneMode.Additive);
         Framework_MasterCamera.instance.DeleteCameras();
     }
 }

@@ -15,7 +15,7 @@ public class Framework_MasterCamera : MonoBehaviour
     {
         foreach (Camera c in GameObject.FindObjectsOfType<Camera>())
         {
-            if (c != this)
+            if (c.GetComponent<Framework_MasterCamera>() == null)
             {
                 Destroy(c.gameObject);
             }
