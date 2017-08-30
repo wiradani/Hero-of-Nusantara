@@ -16,8 +16,9 @@ public class ButtonListButton : MonoBehaviour {
 
 	}
 
-	public void onClick(){
-	
+	public void clickWeapon(){
+		Framework_GameManager.playerData.weapon = weapon;
+		print (Framework_GameManager.playerData.weapon.name);
 	}
 
 }
