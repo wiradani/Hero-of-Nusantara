@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Framework_MasterCamera : MonoBehaviour
 {
@@ -11,11 +12,13 @@ public class Framework_MasterCamera : MonoBehaviour
         instance = this;
     }
 
-    public void DeleteCameras()
+    public void DeleteCameras(string _sceneName)
     {
-        foreach (Camera c in GameObject.FindObjectsOfType<Camera>())
+        GameObject[] goArray = SceneManager.GetSceneByName(_sceneName).GetRootGameObjects(); 
+
+        foreach (GameObject c in goArray)
         {
-            if (c.GetComponent<Framework_MasterCamera>() == null)
+            if (c.GetComponent<Framework_MasterCamera>() == null && c.GetComponent<Camera>() != null)
             {
                 Destroy(c.gameObject);
             }
