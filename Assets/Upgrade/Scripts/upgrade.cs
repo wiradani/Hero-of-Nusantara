@@ -12,7 +12,9 @@ public class Upgrade : MonoBehaviour {
 		case 1:
 			Framework_GameManager.playerData.weapon = Weapon.SPEAR;
 			break;
-		
+		default:
+			Framework_GameManager.playerData.weapon = Weapon.GUN;
+			break;
 		}
 	}
 
