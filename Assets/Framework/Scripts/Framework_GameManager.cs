@@ -9,6 +9,7 @@ public class Framework_GameManager : MonoBehaviour
 
     public static Framework_PlayerData playerData;
     public static List<Framework_Weapon> weaponDatabase = new List <Framework_Weapon>();
+    public static List<Framework_CostumeData> costumeDatabase = new List<Framework_CostumeData>();
     public static List<Framework_Enemy> enemyDatabase = new List<Framework_Enemy>();
     public static List<Framework_Level> levelDatabase = new List<Framework_Level>();
 
@@ -35,6 +36,8 @@ public class Framework_GameManager : MonoBehaviour
 
         weaponDatabase.Add(new Framework_Weapon("sling", 0.1f, "Sling", false, 10));
         weaponDatabase.Add(new Framework_Weapon("javelin", 0.5f, "Javelin", false, 20));
+
+
 
         List<Framework_Enemy> x = new List<Framework_Enemy>();
         x.Add(new Framework_Enemy("brute", "Brute", 1f, EnemyType.Melee, 0f));
