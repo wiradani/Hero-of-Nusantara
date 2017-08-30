@@ -1,16 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class Framework_Level : MonoBehaviour {
+public class Framework_Level
+{
+    public string id;
+    public List<Framework_Enemy> enemyOnLevel = new List<Framework_Enemy>();
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public Framework_Level(string _id, List<Framework_Enemy> _enemyOnLevel)
+    {
+        id = _id;
+        enemyOnLevel = _enemyOnLevel;
+    }
 }
