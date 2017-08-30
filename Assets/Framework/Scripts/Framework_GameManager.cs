@@ -16,6 +16,7 @@ public class Framework_GameManager : MonoBehaviour
     {
         SetDatabase();
         SceneManager.LoadScene("Upgrade", LoadSceneMode.Additive);
+        Framework_MasterCamera.instance.DeleteCameras();
     }
 	
     // Update is called once per frame
