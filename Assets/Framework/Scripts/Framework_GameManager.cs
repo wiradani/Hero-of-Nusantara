@@ -41,6 +41,8 @@ public class Framework_GameManager : MonoBehaviour
     public void GoToArena()
     {
         currentLevel = levelDatabase[0];
+
         SceneManager.LoadScene("Musuh", LoadSceneMode.Additive);
+        Framework_MasterCamera.instance.DeleteCameras();
     }
 }
