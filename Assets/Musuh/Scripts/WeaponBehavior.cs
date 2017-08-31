@@ -11,7 +11,7 @@ public class WeaponBehavior : MonoBehaviour {
     
 	// Use this for initialization
 	void Start () {
-		
+        player = GameObject.Find("player");
 	}
 	
 	// Update is called once per frame
@@ -39,7 +39,7 @@ public class WeaponBehavior : MonoBehaviour {
         var startPos = transform.position;
         var timer = 0.0f;
 
-        while (transform.position.y>dest.y)
+        while (transform.position.y== transform.position.y)
         {
             var height = Mathf.Sin(Mathf.PI * timer) * hopHeight;
             transform.position = Vector3.Lerp(startPos, dest, timer) + Vector3.up * height;
