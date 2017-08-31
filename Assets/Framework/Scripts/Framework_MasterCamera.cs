@@ -12,8 +12,10 @@ public class Framework_MasterCamera : MonoBehaviour
         instance = this;
     }
 
-    public void DeleteCameras(string _sceneName)
+
+    public IEnumerator DeleteCameras(string _sceneName)
     {
+        yield return new WaitForSeconds(.01f);
         GameObject[] goArray = SceneManager.GetSceneByName(_sceneName).GetRootGameObjects(); 
 
         foreach (GameObject c in goArray)
@@ -23,6 +25,5 @@ public class Framework_MasterCamera : MonoBehaviour
                 Destroy(c.gameObject);
             }
         }
-
     }
 }

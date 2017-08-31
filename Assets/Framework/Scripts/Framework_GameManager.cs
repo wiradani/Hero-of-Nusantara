@@ -53,13 +53,13 @@ public class Framework_GameManager : MonoBehaviour
         currentLevel = levelDatabase[0];
         SceneManager.UnloadSceneAsync("MainMenu");
         SceneManager.LoadScene("Musuh", LoadSceneMode.Additive);
-        Framework_MasterCamera.instance.DeleteCameras("Musuh");
+        StartCoroutine(Framework_MasterCamera.instance.DeleteCameras("Musuh"));
     }
 
     public void GoToUpgrade()
     {
         SceneManager.UnloadSceneAsync("MainMenu");
         SceneManager.LoadScene("Upgrade", LoadSceneMode.Additive);
-        Framework_MasterCamera.instance.DeleteCameras("Upgrade");
+        StartCoroutine(Framework_MasterCamera.instance.DeleteCameras("Upgrade"));
     }
 }
