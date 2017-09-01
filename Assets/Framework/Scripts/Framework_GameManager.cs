@@ -34,13 +34,14 @@ public class Framework_GameManager : MonoBehaviour
 
     public void SetDatabase()
     {
-        playerData = new Framework_PlayerData();
-
+        
         weaponDatabase.Add(new Framework_Weapon("sling", 0.1f, "Sling", false, 10));
         weaponDatabase.Add(new Framework_Weapon("javelin", 0.5f, "Javelin", false, 20));
 
         costumeDatabase.Add(new Framework_CostumeData("default", "Default", 1));
         costumeDatabase.Add(new Framework_CostumeData("assasin", "Assasin", 1));
+
+        playerData = new Framework_PlayerData();
 
         List<Framework_Enemy> x = new List<Framework_Enemy>();
         List<Framework_Enemy> y = new List<Framework_Enemy>();
