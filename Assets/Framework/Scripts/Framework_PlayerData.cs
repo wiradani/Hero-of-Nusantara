@@ -9,7 +9,7 @@ public class Framework_PlayerData
 
     public Framework_PlayerData()
     {
-        weapon = new Framework_Weapon();
-        costume = new Framework_CostumeData();
+        weapon = Framework_GameManager.weaponDatabase[0];
+        costume = Framework_GameManager.costumeDatabase[0];
     }
 }
