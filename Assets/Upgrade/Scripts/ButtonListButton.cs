@@ -18,7 +18,7 @@ public class ButtonListButton : MonoBehaviour {
 
 	public void clickWeapon(){
 		Framework_GameManager.playerData.weapon = weapon;
-
+		ButtonListControl.instance.avatar.UpdatePlayerAppeareance ();
 		print (Framework_GameManager.playerData.weapon.name);
 	}
 
