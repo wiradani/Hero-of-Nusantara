@@ -18,6 +18,7 @@ public class CostumeButtonListButton : MonoBehaviour {
 
 	public void clickWeapon(){
 		Framework_GameManager.playerData.costume = costume;
+		CostumeButtonListControl.instance.avatar.UpdatePlayerAppeareance ();
 		print (Framework_GameManager.playerData.costume.name);
 	}
 }
