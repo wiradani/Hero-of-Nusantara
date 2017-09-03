@@ -3,21 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
-	Projectile projectile;
-	public Rigidbody2D rbProjectile;
+	GameObject predictor;
+	public Rigidbody2D rbPredictor;
 
 	public GameObject pointer;
 	public Rigidbody2D rbPointer;
+
+	public GameObject bullet;
 	//public Rigidbody2D rb;
 	public bool isPressed = false;
 
 
 
-
 	// Use this for initialization
 	void Start () {
-		projectile = GameObject.FindObjectOfType<Projectile> ();
-		rbProjectile = projectile.GetComponent<Rigidbody2D> ();
+		predictor = GameObject.FindGameObjectWithTag("Predictor");
+		rbPredictor = predictor.GetComponent<Rigidbody2D> ();
+		rbPredictor.isKinematic = true;
+
 		pointer = GameObject.FindGameObjectWithTag ("Pointer");
 		rbPointer = pointer.GetComponent<Rigidbody2D> ();
 		//rb = GetComponent<Rigidbody2D> ();
@@ -44,19 +47,32 @@ public class Player : MonoBehaviour {
 	{
 		
 		isPressed = true;
-		rbPointer.isKinematic = true;
+
 	}
 		
 	public float forceX, forceY, power;
-	public bool isLaunched;
+	public bool isLaunched = false;
 	void OnMouseUp ()
 	{
 		isPressed = false;
-		rbPointer.isKinematic = false;
-		rbPointer.gravityScale = 1;
+		rbPredictor.isKinematic = false;
+		rbPredictor.gravityScale = 1;
+		GameObject obj = Instantiate (bullet, transform.position, Quaternion.identity);
+		CircleCollider2D colObj = obj.GetComponent<CircleCollider2D> ();
+		Rigidbody2D rbObj = obj.GetComponent<Rigidbody2D> ();
 		forceX = gameObject.transform.position.x - rbPointer.position.x;
 		forceY = gameObject.transform.position.y - rbPointer.position.y;
-		rbPointer.AddForce (new Vector2 (forceX*power, forceY*power));
+		rbObj.AddForce (new Vector2 (forceX*power, forceY*power));
+		//yield return new WaitForSeconds (.5f);
+		//colObj.enabled = true;
+
 		isLaunched = true;
+		rbPointer.position = new Vector2 (gameObject.transform.position.x, gameObject.transform.position.y);
 	}
+
+	//IEnumerator Shoot(){
+		
+
+	//}
+
 }
