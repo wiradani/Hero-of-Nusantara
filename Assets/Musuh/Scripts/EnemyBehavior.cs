@@ -11,14 +11,22 @@ public class EnemyBehavior : MonoBehaviour {
     bool inArea = false;
 	public float speed = 1;
 
+    public static Enemy_BoneStructure bones;
 	// Use this for initialization
 	void Start () {
         enemy = this.gameObject;
         enemy.name = enemyData.id;
 
         ////// Get Bones Sprites //////
-        
+        bones.getBones();
 
+        bones.setSprites(bones.Body, "e1"+enemy.name);
+        bones.setSprites(bones.LeftShoulder, "e1" + enemy.name);
+        bones.setSprites(bones.RightShoulder, "e1" + enemy.name);
+        bones.setSprites(bones.LHWeapon, "e1" + enemy.name);
+        bones.setSprites(bones.RHWeapon, "e1" + enemy.name);
+        bones.setSprites(bones.LeftLeg, "e1" + enemy.name);
+        bones.setSprites(bones.RightLeg, "e1" + enemy.name);
         ////
 
         if (enemyData.type == EnemyType.Range)
