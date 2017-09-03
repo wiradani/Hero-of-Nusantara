@@ -9,6 +9,13 @@ public class CostumeButtonListControl : MonoBehaviour
     [SerializeField]
     private GameObject buttonTemplate;
 
+	public Framework_Humanoid avatar;
+	public static CostumeButtonListControl instance;
+
+	void Awake(){
+		instance = this;
+	}
+
     // Use this for initialization
     void Start()
     {
