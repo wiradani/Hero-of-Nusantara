@@ -117,6 +117,7 @@ public class Player : MonoBehaviour {
 
 	IEnumerator Predict(){
 		yield return new WaitForSeconds (.5f);
+
 		rbPredictor.position = new Vector2 (gameObject.transform.position.x, gameObject.transform.position.y);
 		forceX = gameObject.transform.position.x - rbPointer.position.x;
 		forceY = gameObject.transform.position.y - rbPointer.position.y;
@@ -124,8 +125,10 @@ public class Player : MonoBehaviour {
 			rbPredictor.isKinematic = false;
 			rbPredictor.gravityScale = 1;
 		}
+		rbPredictor.velocity = new Vector2 (0, 0);
 		rbPredictor.AddForce(new Vector2 (forceX*power, forceY*power));
-		yield return new WaitForSeconds (1f);
+		yield return new WaitForSeconds (1.5f);
+
 		StartCoroutine (Predict ());
 	}
 
