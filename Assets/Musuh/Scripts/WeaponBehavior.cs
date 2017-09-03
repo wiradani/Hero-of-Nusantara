@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,7 +24,7 @@ public class WeaponBehavior : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        if (coll.gameObject.tag == "Player")
+        if (coll.gameObject.name=="player")
         {
             hopping = false;
             playerHit = true;
@@ -33,13 +34,13 @@ public class WeaponBehavior : MonoBehaviour {
 
     IEnumerator Parabolic(Vector3 dest, float time)
     {
-        if (hopping) yield break;
+        //if (hopping) yield break;
 
-        hopping = true;
+        //hopping = true;
         var startPos = transform.position;
         var timer = 0.0f;
 
-        while (transform.position.y== transform.position.y)
+        while (transform.position.y==transform.position.y)
         {
             var height = Mathf.Sin(Mathf.PI * timer) * hopHeight;
             transform.position = Vector3.Lerp(startPos, dest, timer) + Vector3.up * height;
@@ -47,6 +48,6 @@ public class WeaponBehavior : MonoBehaviour {
             timer += Time.deltaTime / time;
             yield return null;
         }
-        hopping = false;
+        //hopping = false;
     }
 }

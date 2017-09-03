@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour {
     public EnemyBehavior enemy;
@@ -11,7 +12,7 @@ public class EnemySpawner : MonoBehaviour {
 	void Start () {
         enemyList = Framework_GameManager.currentLevel.enemyOnLevel;
         Debug.Log("Enemy:  "+ enemyList.Count);
-        enemy = (EnemyBehavior)Resources.Load("musuh");
+        //enemy = (EnemyBehavior)Resources.Load("musuh");
     }
 
     bool waitActive = false;
@@ -27,7 +28,7 @@ public class EnemySpawner : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        randNum = Random.Range(0, enemyList.Count-2);
+        randNum = Random.Range(0, enemyList.Count);
 
         if (!waitActive)
         {
@@ -35,6 +36,7 @@ public class EnemySpawner : MonoBehaviour {
         }
         if (canSpawn)
         {
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName("Musuh"));
             EnemyBehavior enemyClone = Instantiate(enemy, new Vector3(transform.position.x,
                 transform.position.y, 0), Quaternion.identity);
             enemyClone.enemyData = enemyList[randNum];

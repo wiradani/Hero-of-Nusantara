@@ -9,6 +9,7 @@ public class Framework_GameManager : MonoBehaviour
 
     public static Framework_PlayerData playerData;
     public static List<Framework_Weapon> weaponDatabase = new List <Framework_Weapon>();
+    public static List<Framework_CostumeData> costumeDatabase = new List<Framework_CostumeData>();
     public static List<Framework_Enemy> enemyDatabase = new List<Framework_Enemy>();
     public static List<Framework_Level> levelDatabase = new List<Framework_Level>();
 
@@ -36,27 +37,38 @@ public class Framework_GameManager : MonoBehaviour
         weaponDatabase.Add(new Framework_Weapon("sling", 0.1f, "Sling", false, 10));
         weaponDatabase.Add(new Framework_Weapon("javelin", 0.5f, "Javelin", false, 20));
 
+
+
         List<Framework_Enemy> x = new List<Framework_Enemy>();
+        List<Framework_Enemy> y = new List<Framework_Enemy>();
+        List<Framework_Enemy> z = new List<Framework_Enemy>();
+
         x.Add(new Framework_Enemy("brute", "Brute", 1f, EnemyType.Melee, 5f));
         levelDatabase.Add(new Framework_Level("act1lvl1", x));
-        x.Add(new Framework_Enemy("shield", "Shield", .5f, EnemyType.Shield, 5f));
-        levelDatabase.Add(new Framework_Level("act1lvl2", x));
-        x.Add(new Framework_Enemy("range", "Range", 1f, EnemyType.Range, 15f));
-        levelDatabase.Add(new Framework_Level("act1lvl3", x));
+
+        y.Add(new Framework_Enemy("brute", "Brute", 1f, EnemyType.Melee, 5f));
+        y.Add(new Framework_Enemy("shield", "Shield", .5f, EnemyType.Shield, 5f));
+        levelDatabase.Add(new Framework_Level("act1lvl2", y));
+
+        z.Add(new Framework_Enemy("brute", "Brute", 1f, EnemyType.Melee, 5f));
+        z.Add(new Framework_Enemy("shield", "Shield", .5f, EnemyType.Shield, 5f));
+        z.Add(new Framework_Enemy("range", "Range", 1f, EnemyType.Range, 15f));
+        levelDatabase.Add(new Framework_Level("act1lvl3", z));
+
     }
 
     public void GoToArena()
     {
-        currentLevel = levelDatabase[0];
+        currentLevel = levelDatabase[2];
         SceneManager.UnloadSceneAsync("MainMenu");
         SceneManager.LoadScene("Musuh", LoadSceneMode.Additive);
-        Framework_MasterCamera.instance.DeleteCameras();
+        StartCoroutine(Framework_MasterCamera.instance.DeleteCameras("Musuh"));
     }
 
     public void GoToUpgrade()
     {
         SceneManager.UnloadSceneAsync("MainMenu");
         SceneManager.LoadScene("Upgrade", LoadSceneMode.Additive);
-        Framework_MasterCamera.instance.DeleteCameras();
+        StartCoroutine(Framework_MasterCamera.instance.DeleteCameras("Upgrade"));
     }
 }

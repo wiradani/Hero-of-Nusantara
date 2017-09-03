@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,11 +14,18 @@ public class EnemyBehavior : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         enemy = this.gameObject;
-        enemy.name = enemyData.name;
+        enemy.name = enemyData.id;
+
+        ////// Get Bones Sprites //////
+        
+
+        ////
+
         if (enemyData.type == EnemyType.Range)
         {
             enemy.GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("enemy1_1");
-            weapon = (WeaponBehavior)Resources.Load("enemyWeapon_" + enemy.name);
+            weapon = Resources.Load<WeaponBehavior>("werange");
+
         }
         else if (enemyData.type == EnemyType.Melee)
         {
@@ -32,7 +40,6 @@ public class EnemyBehavior : MonoBehaviour {
         enemy.GetComponent<Animator>().runtimeAnimatorController = (RuntimeAnimatorController)Resources.Load(enemyData.id);
         enemy.GetComponent<CircleCollider2D>().radius = enemyData.stoppingDistance;
         speed = enemyData.speed;
-
         player = GameObject.Find("player");
         enemy.GetComponent<Animator>().speed = 0.5F;
     }
@@ -80,10 +87,11 @@ public class EnemyBehavior : MonoBehaviour {
             Vector3 weapon_position = new Vector3(enemy.GetComponent<Transform>().position.x + 0.36F,
                                                     enemy.GetComponent<Transform>().position.y + 0.84F, 0);
 
-            WeaponBehavior IO = Instantiate(weapon, weapon_position, weapon.transform.rotation);
+            WeaponBehavior IO = Instantiate<WeaponBehavior>(weapon, weapon_position, weapon.transform.rotation);
             IO.ifParent = false;
             IO.hopping = false;
-            IO.GetComponent<SpriteRenderer>().enabled = true;
+
         }
     }
+
 }
