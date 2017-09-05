@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 	GameObject predictor;
@@ -11,6 +12,8 @@ public class Player : MonoBehaviour {
 	public SpriteRenderer srPointer;
 
 	public GameObject bullet;
+	public GameObject powerBullet;
+
 	public Rigidbody2D rb;
 	public bool isPressed = false;
 
@@ -91,7 +94,7 @@ public class Player : MonoBehaviour {
 		isPressed = false;
 		//rbPredictor.isKinematic = false;
 		//rbPredictor.gravityScale = 1;
-		StopCoroutine(Predict());
+		StopAllCoroutines();
 		rbPredictor.isKinematic = true;
 		rbPredictor.position = new Vector2 (1000, 1000);
 
@@ -103,8 +106,14 @@ public class Player : MonoBehaviour {
 
 	}
 
+	public bool skillActive=false;
 	IEnumerator Shoot(){
-		GameObject obj = Instantiate (bullet, transform.position, Quaternion.identity);
+		SceneManager.SetActiveScene (SceneManager.GetSceneByName ("Player"));
+		GameObject obj;
+		if(skillActive)
+			obj = Instantiate (powerBullet, transform.position, Quaternion.identity);
+		else
+			obj = Instantiate (bullet, transform.position, Quaternion.identity);
 		CircleCollider2D colObj = obj.GetComponent<CircleCollider2D> ();
 		Rigidbody2D rbObj = obj.GetComponent<Rigidbody2D> ();
 		forceX = gameObject.transform.position.x - rbPointer.position.x;
