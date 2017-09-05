@@ -22,7 +22,7 @@ public class Enemy_BoneStructure : MonoBehaviour {
         LeftShoulder = transform.Find("Core/_Body/_Left Shoulder/Left Shoulder");
         RightShoulder = transform.Find("Core/_Body/_Right Shoulder/Right Shoulder");
         LHWeapon = transform.Find("Core/_Body/_Left Shoulder/Left Shoulder/_LH Weapon/LH Weapon");
-        RHWeapon = transform.Find("Core/_Body/_Right Shoulder/Right Shoulder");
+        RHWeapon = transform.Find("Core/_Body/_Right Shoulder/Right Shoulder/_RH Weapon/RH Weapon");
         LeftLeg = transform.Find("Core/_Left Leg/Left Leg");
         RightLeg = transform.Find("Core/_Right Leg/Right Leg");
     }
