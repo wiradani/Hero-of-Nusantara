@@ -47,16 +47,16 @@ public class Framework_GameManager : MonoBehaviour
         List<Framework_Enemy> y = new List<Framework_Enemy>();
         List<Framework_Enemy> z = new List<Framework_Enemy>();
 
-        x.Add(new Framework_Enemy("brute", "Brute", 1f, EnemyType.Melee, 0f));
+        x.Add(new Framework_Enemy("brute_a1", "Brute", 1f, EnemyType.Melee, 0f));
         levelDatabase.Add(new Framework_Level("act1lvl1", x));
 
-        y.Add(new Framework_Enemy("brute", "Brute", 1f, EnemyType.Melee, 0f));
-        y.Add(new Framework_Enemy("shield", "Shield", .5f, EnemyType.Shield, 0f));
+        y.Add(new Framework_Enemy("brute_a1", "Brute", 1f, EnemyType.Melee, 0f));
+        y.Add(new Framework_Enemy("shield_a1", "Shield", .5f, EnemyType.Shield, 0f));
         levelDatabase.Add(new Framework_Level("act1lvl2", y));
 
-        z.Add(new Framework_Enemy("brute", "Brute", 1f, EnemyType.Melee, 0f));
-        z.Add(new Framework_Enemy("shield", "Shield", .5f, EnemyType.Shield, 0f));
-        z.Add(new Framework_Enemy("range", "Range", 1f, EnemyType.Range, 2f));
+        z.Add(new Framework_Enemy("brute_a1", "Brute", 1f, EnemyType.Melee, 0f));
+        z.Add(new Framework_Enemy("shield_a1", "Shield", .5f, EnemyType.Shield, 0f));
+        z.Add(new Framework_Enemy("range_a1", "Range", 1f, EnemyType.Range, 2f));
         levelDatabase.Add(new Framework_Level("act1lvl3", z));
 
 
