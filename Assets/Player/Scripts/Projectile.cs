@@ -34,13 +34,13 @@ public class Projectile : MonoBehaviour {
 		
 
 	}
-
-
-
-
+		
 	void Dead(){
 		Destroy (gameObject);
 	}
 
+	void OnCollisionEnter2D(Collision2D col){
+		//col.gameObject.SendMessage("", total damage, SendMessageOptions.DontRequireReceiver);
+	}
 }
 

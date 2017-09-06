@@ -18,12 +18,15 @@ public class Player : MonoBehaviour {
 	public bool isPressed = false;
 
 
-
+	void Awake(){
+		rb = GetComponent<Rigidbody2D> ();
+		rb.isKinematic = true;
+	}
 
 
 	// Use this for initialization
 	void Start () {
-		rb = GetComponent<Rigidbody2D> ();
+		
 
 		predictor = GameObject.FindGameObjectWithTag("Predictor");
 		rbPredictor = predictor.GetComponent<Rigidbody2D> ();
@@ -87,7 +90,7 @@ public class Player : MonoBehaviour {
 
 	}
 		
-	public float forceX, forceY, power;
+	public float forceX, forceY, power=250;
 
 	void OnMouseUp ()
 	{
