@@ -22,7 +22,7 @@ public class Skills : MonoBehaviour {
 		 *shield selalu ngikut player
 		 *set skill window active
 		 *wait for'duration'
-		 *set skill non-active
+		 *set skill non-activ
 		*/
 
 	}
