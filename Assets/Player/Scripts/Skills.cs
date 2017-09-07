@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Skills : MonoBehaviour {
 	Player player;
+	//GameObject shield;
 
 	// Use this for initialization
 	void Start () {
@@ -22,15 +23,21 @@ public class Skills : MonoBehaviour {
 		 *shield selalu ngikut player
 		 *set skill window active
 		 *wait for'duration'
-		 *set skill non-activ
+		 *set skill non-active
 		*/
 
 	}
 
 	IEnumerator PowerShotStart(){
 		player.skillActive = true;
-		yield return new WaitForSeconds (5f);
+		yield return new WaitForSeconds (3f);
 		player.skillActive = false;
 	}
-
+	/*
+	 * IEnumerator ActivateShield(){
+	 * 	shield.SetActive("true");
+	 * 	yield return new WaitForSeconds (3f);
+	 * 	shield.SetActive("false");
+	 * }
+	 */
 }

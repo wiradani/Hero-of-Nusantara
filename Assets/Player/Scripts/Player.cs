@@ -17,6 +17,8 @@ public class Player : MonoBehaviour {
 	public Rigidbody2D rb;
 	public bool isPressed = false;
 
+	public GameObject[] predictTrails;
+
 
 	void Awake(){
 		rb = GetComponent<Rigidbody2D> ();
@@ -36,6 +38,7 @@ public class Player : MonoBehaviour {
 		rbPointer = pointer.GetComponent<Rigidbody2D> ();
 		srPointer = pointer.GetComponent<SpriteRenderer> ();
 		srPointer.enabled = false;
+
 		//rb = GetComponent<Rigidbody2D> ();
 	}
 
@@ -100,6 +103,10 @@ public class Player : MonoBehaviour {
 		StopAllCoroutines();
 		rbPredictor.isKinematic = true;
 		rbPredictor.position = new Vector2 (1000, 1000);
+		for (i = 0; i < 9; i++) {
+			predictTrail = predictTrails [i];
+			predictTrail.transform.position = new Vector2 (1001, 1001);
+		}
 
 		StartCoroutine (Shoot ());
 
@@ -139,9 +146,24 @@ public class Player : MonoBehaviour {
 		}
 		rbPredictor.velocity = new Vector2 (0, 0);
 		rbPredictor.AddForce(new Vector2 (forceX*power, forceY*power));
+		StartPredictionPath ();
 		yield return new WaitForSeconds (1.5f);
 
 		StartCoroutine (Predict ());
 	}
 
+	//Predicion Path Making
+	int i;
+	GameObject predictTrail;
+	void StartPredictionPath(){
+		StartCoroutine (PathTrailing ());
+	}
+
+	IEnumerator PathTrailing(){
+		for (i = 0; i < 9; i++) {
+			yield return new WaitForSeconds (.2f);
+			predictTrail = predictTrails [i];
+			predictTrail.transform.position = new Vector2 (rbPredictor.position.x, rbPredictor.position.y);
+		}
+	}
 }
