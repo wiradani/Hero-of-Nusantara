@@ -46,7 +46,6 @@ public class Dialogue_Manager : MonoBehaviour
             yield return null;
         }
         bg.sprite = _nextImage;
-        //bg.sprite = Resources.Load<Sprite>("Dialog Background/BG Dialog Lab 2 - Mid");
         while (bg.color.a < 0.99f)
         {
             bg.color = Color.Lerp(bg.color, Color.white, .05f);
@@ -65,7 +64,18 @@ public class Dialogue_Manager : MonoBehaviour
             yield return null;
         }
         isTyping = false;
+
+        while (!Input.GetMouseButtonDown(0))
+        {
+            yield return null;
+        }
+
         prologueText.text = "";
+
+        while (!Input.GetMouseButtonDown(0))
+        {
+            yield return null;
+        }
 
         Sprite nextImage = Resources.Load<Sprite>("Dialog Background/BG Dialog Lab 1 - Early");
         StartCoroutine(SlideshowImage(nextImage));
