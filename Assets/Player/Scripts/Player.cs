@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 	GameObject predictor;
@@ -11,16 +12,23 @@ public class Player : MonoBehaviour {
 	public SpriteRenderer srPointer;
 
 	public GameObject bullet;
+	public GameObject powerBullet;
+
 	public Rigidbody2D rb;
 	public bool isPressed = false;
 
+	public GameObject[] predictTrails;
 
 
+	void Awake(){
+		rb = GetComponent<Rigidbody2D> ();
+		rb.isKinematic = true;
+	}
 
 
 	// Use this for initialization
 	void Start () {
-		rb = GetComponent<Rigidbody2D> ();
+		
 
 		predictor = GameObject.FindGameObjectWithTag("Predictor");
 		rbPredictor = predictor.GetComponent<Rigidbody2D> ();
@@ -30,6 +38,7 @@ public class Player : MonoBehaviour {
 		rbPointer = pointer.GetComponent<Rigidbody2D> ();
 		srPointer = pointer.GetComponent<SpriteRenderer> ();
 		srPointer.enabled = false;
+
 		//rb = GetComponent<Rigidbody2D> ();
 	}
 
@@ -84,16 +93,20 @@ public class Player : MonoBehaviour {
 
 	}
 		
-	public float forceX, forceY, power;
+	public float forceX, forceY, power=250;
 
 	void OnMouseUp ()
 	{
 		isPressed = false;
 		//rbPredictor.isKinematic = false;
 		//rbPredictor.gravityScale = 1;
-		StopCoroutine(Predict());
+		StopAllCoroutines();
 		rbPredictor.isKinematic = true;
 		rbPredictor.position = new Vector2 (1000, 1000);
+		for (i = 0; i < 9; i++) {
+			predictTrail = predictTrails [i];
+			predictTrail.transform.position = new Vector2 (1001, 1001);
+		}
 
 		StartCoroutine (Shoot ());
 
@@ -103,8 +116,14 @@ public class Player : MonoBehaviour {
 
 	}
 
+	public bool skillActive=false;
 	IEnumerator Shoot(){
-		GameObject obj = Instantiate (bullet, transform.position, Quaternion.identity);
+		SceneManager.SetActiveScene (SceneManager.GetSceneByName ("Player"));
+		GameObject obj;
+		if(skillActive)
+			obj = Instantiate (powerBullet, transform.position, Quaternion.identity);
+		else
+			obj = Instantiate (bullet, transform.position, Quaternion.identity);
 		CircleCollider2D colObj = obj.GetComponent<CircleCollider2D> ();
 		Rigidbody2D rbObj = obj.GetComponent<Rigidbody2D> ();
 		forceX = gameObject.transform.position.x - rbPointer.position.x;
@@ -127,9 +146,24 @@ public class Player : MonoBehaviour {
 		}
 		rbPredictor.velocity = new Vector2 (0, 0);
 		rbPredictor.AddForce(new Vector2 (forceX*power, forceY*power));
+		StartPredictionPath ();
 		yield return new WaitForSeconds (1.5f);
 
 		StartCoroutine (Predict ());
 	}
 
+	//Predicion Path Making
+	int i;
+	GameObject predictTrail;
+	void StartPredictionPath(){
+		StartCoroutine (PathTrailing ());
+	}
+
+	IEnumerator PathTrailing(){
+		for (i = 0; i < 9; i++) {
+			yield return new WaitForSeconds (.2f);
+			predictTrail = predictTrails [i];
+			predictTrail.transform.position = new Vector2 (rbPredictor.position.x, rbPredictor.position.y);
+		}
+	}
 }
