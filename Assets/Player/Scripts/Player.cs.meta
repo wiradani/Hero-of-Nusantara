@@ -1,15 +1,18 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 0bf8b5b49d367f444aa2b0464260541d
-timeCreated: 1504272691
-=======
-guid: 891128d20b4feae4aa7331cae77fec3f
-timeCreated: 1504272248
->>>>>>> Player
+timeCreated: 1504621149
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - rbPredictor: {instanceID: 0}
+  - pointer: {instanceID: 0}
+  - rbPointer: {instanceID: 0}
+  - srPointer: {instanceID: 0}
+  - bullet: {fileID: 1613572448239814, guid: f285aee337b54284b81938a8a423ef0e, type: 2}
+  - powerBullet: {fileID: 1320824806959498, guid: 32f1bbf0d8e8f1e45a916931da749805,
+      type: 2}
+  - rb: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

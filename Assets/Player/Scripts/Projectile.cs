@@ -6,11 +6,22 @@ public class Projectile : MonoBehaviour {
 	Player player;
 	public Vector2 pos, playerPos;
 
+	public int damage=1,weaponDamage;
+	/*
+	 *base damage = 1
+	 *total damage = damage+weapon dmg
+	 *skill active->total damage =total damage*2
+	 *
+	 *cek trigger
+	 *kalo trigger punya script musuh
+	 *send dmg('total dmg)'
+	 */
 
 
 	void Start(){
 		player = GameObject.FindObjectOfType<Player>();
-
+		//if(player.skillActive)
+			
 
 	}
 
@@ -23,13 +34,13 @@ public class Projectile : MonoBehaviour {
 		
 
 	}
-
-
-
-
+		
 	void Dead(){
 		Destroy (gameObject);
 	}
 
+	void OnCollisionEnter2D(Collision2D col){
+		//col.gameObject.SendMessage("", total damage, SendMessageOptions.DontRequireReceiver);
+	}
 }
 
