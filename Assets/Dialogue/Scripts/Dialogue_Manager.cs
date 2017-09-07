@@ -66,9 +66,20 @@ public class Dialogue_Manager : MonoBehaviour
         prologueText.text = "";
         dialogueText.text = "";
 
+        leftPot.sprite = Resources.Load<Sprite>("Dialog Char/" + _left);
+        rightPot.sprite = Resources.Load<Sprite>("Dialog Char/" + _right);
+
         if (_side == Side.Left)
         {
-            //nameText.text = _name;
+            nameText.text = _left;
+            rightPot.color = Color.gray;
+            leftPot.color = Color.white;
+        }
+        else
+        {
+            nameText.text = _right;
+            leftPot.color = Color.gray;
+            rightPot.color = Color.white;
         }
 
         int letter = 0;
@@ -120,15 +131,15 @@ public class Dialogue_Manager : MonoBehaviour
         yield return  StartCoroutine(TextScroll("Jakarta 2104,Laboratorium Profsor Dharma"
             , prologueText));
 
-        yield return StartCoroutine(TextScroll("Arjuna",
+        yield return StartCoroutine(TextScroll("Arjuna", "Profesor Dharma", Side.Left,
                 "Prof,semua persiapan sudah beres,kita bisa memulai uji coba kapapun anda siap"
             , dialogueText));
 
-        yield return StartCoroutine(TextScroll("Prof Dharma",
+        yield return StartCoroutine(TextScroll("Arjuna", "Profesor Dharma", Side.Right,
                 "Kau yakin Arjuna ingin menjadi tes subjek untuk uji coba ini?Kita bisa menggunakan Hanoman jika kau mau"
             , dialogueText));
 
-        yield return StartCoroutine(TextScroll("Arjuna",
+        yield return StartCoroutine(TextScroll("Arjuna", "Profesor Dharma", Side.Left,
                 "Saya sangat yakin prof,lagipula jika berhasil gelang ini akan mengubah dunia,dan kita   memerlukan Hanoman sebagai navigator"
             , dialogueText));
 
