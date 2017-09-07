@@ -4,3 +4,4 @@ for gemastik only
 * untuk pembagian tugas silahkan cek di line
 * JANGAN ubah folder orang lain
 * FORMAT untuk nama script : NamaAksi_script contoh Framerwok_GameManager
+* JANGAN PUSH ke MASTER kecuali Bang Dzaky

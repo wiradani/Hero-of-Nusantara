@@ -3,57 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour {
+	Player player;
+	public Vector2 pos, playerPos;
 
-	public Rigidbody2D rb;
-	public Rigidbody2D hook;
+	public int damage=1,weaponDamage;
+	/*
+	 *base damage = 1
+	 *total damage = damage+weapon dmg
+	 *skill active->total damage =total damage*2
+	 *
+	 *cek trigger
+	 *kalo trigger punya script musuh
+	 *send dmg('total dmg)'
+	 */
 
-	public float releaseTime = .15f;
-	public float maxDragDistance = 2f;
-
-
-	private bool isPressed = false;
 
 	void Start(){
-		gameObject.transform.position = new Vector2 (hook.transform.position.x,hook.transform.position.y);
+		player = GameObject.FindObjectOfType<Player>();
+		//if(player.skillActive)
+			
+
 	}
 
 	void Update ()
 	{
-		if (isPressed)
-		{
-			Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-			if (Vector3.Distance(mousePos, hook.position) > maxDragDistance)
-				rb.position = hook.position + (mousePos - hook.position).normalized * maxDragDistance;
-			else
-				rb.position = mousePos;
-		}
-	}
-
-	void OnMouseDown ()
-	{
-		isPressed = true;
-		rb.isKinematic = true;
-	}
-
-	void OnMouseUp ()
-	{
-		isPressed = false;
-		rb.isKinematic = false;
-
-		StartCoroutine(Release());
-	}
-
-	IEnumerator Release ()
-	{
-		yield return new WaitForSeconds(releaseTime);
-
-		GetComponent<SpringJoint2D>().enabled = false;
-		this.enabled = false;
-
-		yield return new WaitForSeconds(2f);
+		pos = new Vector2 (gameObject.transform.position.x, gameObject.transform.position.y);
+		playerPos = new Vector2 (player.transform.position.x, player.transform.position.y);
+		if (pos.x > playerPos.x + 20 || pos.y<playerPos.y-10)
+			Dead ();
+		
 
 	}
+		
+	void Dead(){
+		Destroy (gameObject);
+	}
 
+	void OnCollisionEnter2D(Collision2D col){
+		//col.gameObject.SendMessage("", total damage, SendMessageOptions.DontRequireReceiver);
+	}
 }
 
