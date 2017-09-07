@@ -32,7 +32,7 @@ public class Dialogue_Manager : MonoBehaviour
             }
         }
     }
-
+	//prolog
     IEnumerator TextScroll(string lineOfText, Text _theText)
     {
         skipPhase = false;
@@ -58,9 +58,20 @@ public class Dialogue_Manager : MonoBehaviour
         }
 
     }
-
+	//dialog
     IEnumerator TextScroll(string _left, string _right, Side _side, string lineOfText, Text _theText)
     {
+		rightPot.gameObject.SetActive (true);
+		leftPot.gameObject.SetActive (true);
+
+		if (_left == "") {
+			leftPot.gameObject.SetActive (false);
+		}
+
+		if (_right == "") {
+			rightPot.gameObject.SetActive (false);
+		}
+
         skipPhase = false;
         dialogueSet.SetActive(true);
         prologueText.text = "";
@@ -99,7 +110,7 @@ public class Dialogue_Manager : MonoBehaviour
             yield return null;
         }
     }
-
+	//ganti gambar
     IEnumerator SlideshowImage(Sprite _nextImage)
     {
         dialogueSet.SetActive(false);
@@ -122,7 +133,7 @@ public class Dialogue_Manager : MonoBehaviour
 
     IEnumerator Act1_Lvl1()
     {
-        yield return StartCoroutine(TextScroll("Jakarta 2104, Profesor Dharma seorang jenuis peraih nobel fisika berhasil menciptakan sebuah mesin waktu. Mesin waktu ini berbentuk sebuah gelang bernama “Time Watch” yang dibuatnya bersama dengan asistennya, Arjuna. Profesor berharap dengan adanya mesin waktu ini, ia dapat mengungkap detail sejarah yang telah terlupakan"
+		yield return StartCoroutine(TextScroll("Jakarta 2104, Profesor Dharma seorang jenuis peraih nobel fisika berhasil menciptakan sebuah mesin waktu. Mesin waktu ini berbentuk sebuah kristal bernama “Etherion” yang dibuat bersama dengan asistennya, Arjuna. Profesor berharap dengan adanya mesin waktu ini, ia dapat mengungkap detail sejarah yang telah terlupakan."
             , prologueText));
 
         Sprite nextImage = Resources.Load<Sprite>("Dialog Background/BG Dialog Lab 1 - Early");
@@ -132,23 +143,55 @@ public class Dialogue_Manager : MonoBehaviour
             , prologueText));
 
         yield return StartCoroutine(TextScroll("Arjuna", "Profesor Dharma", Side.Left,
-                "Prof,semua persiapan sudah beres,kita bisa memulai uji coba kapapun anda siap"
+			"Prof, semua persiapan sudah selesai, kita dapat memulai uji coba kapanpun anda siap."
             , dialogueText));
 
         yield return StartCoroutine(TextScroll("Arjuna", "Profesor Dharma", Side.Right,
-                "Kau yakin Arjuna ingin menjadi tes subjek untuk uji coba ini?Kita bisa menggunakan Hanoman jika kau mau"
+			"Kau yakin ingin menjadi tes subjek untuk uji coba mesin waktu ini, Arjuna? Kita dapat menggunakan Hanoman yang merupakan sebuah Artificial Intelligence untuk mengurangi bahaya jika terjadi kesalahan pada uji coba ini."
             , dialogueText));
 
         yield return StartCoroutine(TextScroll("Arjuna", "Profesor Dharma", Side.Left,
-                "Saya sangat yakin prof,lagipula jika berhasil gelang ini akan mengubah dunia,dan kita   memerlukan Hanoman sebagai navigator"
+			"Saya sangat yakin prof, lagipula... jika uji coba ini berhasil, maka Kristal Etherion ini akan mampu kita gunakan untuk mengubah dunia. Selain itu, kita masih memerlukan Hanoman sebagai navigator saat uji coba ini berhasil, benarkan?"
             , dialogueText));
+		
+		yield return StartCoroutine(TextScroll("Hanoman", "Profesor Dharma", Side.Left,
+			"Benar apa kata Arjuna. Semua sistem berjalan dengan baik dan kita dapat memulai uji coba ini kapan pun."
+			, dialogueText));
+		
+		yield return StartCoroutine(TextScroll("Hanoman", "Profesor Dharma", Side.Left,
+			"Baiklah kalau begitu. Kita akan memulai uji cobanya."
+			, dialogueText));
+
 
         nextImage = Resources.Load<Sprite>("Dialog Background/BG Dialog Lab 2 - Mid");
         yield return StartCoroutine(SlideshowImage(nextImage));
 
+		yield return StartCoroutine(TextScroll("Hanoman", "Profesor Dharma", Side.Left,
+			"Batalkan uji coba! Cepat batalkan! Hanoman aktifkan protokol pencegahan segera!"
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Profesor Dharma", Side.Right,
+			"Kristal Etherion tidak merespon apapun prof! Aktifkan override protocol!"
+			, dialogueText));
+		
+		yield return StartCoroutine(TextScroll("Arjuna", "Hanoman", Side.Left,
+			"Error… error… Program Pencegahan tidak dapat dibatalkan. Memulai inisiai perjalan waktu…."
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Profesor Dharma", Side.Left,
+			"Arjuna cepat lepaskan Kristal Etherion tersebut!"
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Profesor Dharma", Side.Right,
+			"argh!!!"
+			, dialogueText));
+		
         nextImage = Resources.Load<Sprite>("Dialog Background/BG Dialog Lab 3 - Last");
         yield return StartCoroutine(SlideshowImage(nextImage));
-
+	
+		yield return StartCoroutine(TextScroll("", "Profesor Dharma", Side.Left,
+			"Arjunaa!!!"
+			, dialogueText));
       
     }
 }
