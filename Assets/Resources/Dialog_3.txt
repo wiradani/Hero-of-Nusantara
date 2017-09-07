@@ -1,0 +1,16 @@
+background hutan
+Hanoman : Sepertinya sudah tidak ada tanda-tanda musuh, kita harus segera menuju Ibu kota Majapahit.
+Arjuna : Kau benar Hanoman, aku rasa pasukan mongolia tidak akan menyerah begitu saja.
+background istana
+Prajurit Majapahit : Arjuna, Syukurlah kau kembali dengan selamat! Ah! Kuucapkan terimakasih untuk bantuan yang kau berikan sebelumnya. Mari, akan kubawa kau untuk menemui Paduka raja.
+Raden Wijaya : Arjuna... Benar, kan?  Terima kasih banyak karena kau telah membantu prajuritku dan juga telah bersedia untuk menahan pasukan musuh sebelumnya sehingga kami berhasil tiba di ibu kota ini. Walaupun pertemuan pertama kita mungkin tidak begitu baik tapi biarkan aku memperkenalkan diri terlebih dahulu, Namaku adalah Raden Wijaya, raja dari kerajaan Majapahit dan ini adalah prajurit setiaku, Mada.
+Arjuna : Paduka, tu-tunggu sebentar, tolong angkat kepala Paduka! Jika Paduka raja mengizinkan saya untuk beristirahat sejenak di tempat Paduka raja, itu saja sudah cukup untuk membuat saya senang.
+Raden Wijaya : Apa kau yakin, apa itu saja sudah cukup untukmu? mengingat apa yang telah kau lakukan terhadapku, tentu saja aku akan mengizinkanmu untuk beristirahat di istanaku ini hingga rasa lelahmu itu menghilang. Mada, Persiapkan kamar peristirahatkan untuk Arjuna. Pastikan kau menyiapkan kamar yang dapat membuat pikirannya damai dan menghilangkan rasa lelahnya.
+Arjuna : Terimakasih Paduka.
+Prajurit Majapahit : Paduka! Paduka! Gawat!
+Raden Wijaya : Ada apa prajurit ? Tenangkan dirimu sejenak.
+Prajurit Majapahit : Seluruh armada pasukan mongol sedang Menuju kearah istana dan dalam waktu dekat mereka akan tiba di Istana, Paduka!
+Raden Wijaya : Apa?! Segera evakuasi warga! Utamakan perempuan dan anak anak terlebih dahulu! Bentuk benteng pertahanan disekitar istana dengan segera! ...Maaf Arjuna aku tahu kau lelah, tapi bisakah kau sekali lagi membantu ku?
+Arjuna : Tentu saja Paduka, saya bersedia membantu anda, lagi pula… hidangan yang Mada janjikan sebelumnya membuat saya ingin mencicipinya.
+Raden Wijaya : Terima kasih Arjuna, prajurit! Apapun yang terjadi kita harus melindungi warga! Biarkan mereka masuk kedalam istana! Dan kita pertahankan kerajaan ini hingga titik darah penghabisan!
+Prajurit Majapahit : Segera Paduka!
