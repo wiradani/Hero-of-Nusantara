@@ -19,11 +19,11 @@ public class Dialogue_Manager : MonoBehaviour
     {
         Dialogue_Database.SetDatabase();
 
-		//StartCoroutine(Act1_Lvl_Prolog());
+		StartCoroutine(Act1_Lvl_Prolog());
 		//StartCoroutine(Act1_Lvl_1());
 		//StartCoroutine(Act1_Lvl_2());
 		//StartCoroutine(Act1_Lvl_3());
-		StartCoroutine(Act1_Lvl_4());
+		//StartCoroutine(Act1_Lvl_4());
     }
 
     void Update()
