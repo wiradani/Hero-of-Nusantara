@@ -14,16 +14,16 @@ public class Framework_GameManager : MonoBehaviour
     public static List<Framework_Level> levelDatabase = new List<Framework_Level>();
 
     public static Dictionary<string,Sprite> humanoidSpriteDatabase = new Dictionary<string, Sprite>();
+    public static Dictionary<string, Sprite> enemySpriteDatabase = new Dictionary<string, Sprite>();
 
     public static Framework_Level currentLevel;
     // Use this for initialization
     void Awake()
     {
+        SetDatabase();
         instance = this;
 
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
-
-        SetDatabase();
     }
 	
     // Update is called once per frame
@@ -47,16 +47,17 @@ public class Framework_GameManager : MonoBehaviour
         List<Framework_Enemy> y = new List<Framework_Enemy>();
         List<Framework_Enemy> z = new List<Framework_Enemy>();
 
-        x.Add(new Framework_Enemy("brute_a1", "Brute", 1f, EnemyType.Melee, 0f));
+
+        x.Add(new Framework_Enemy("brute_a1", "Brute", 1f, EnemyType.Melee, 4f));
         levelDatabase.Add(new Framework_Level("act1lvl1", x));
 
-        y.Add(new Framework_Enemy("brute_a1", "Brute", 1f, EnemyType.Melee, 0f));
-        y.Add(new Framework_Enemy("shield_a1", "Shield", .5f, EnemyType.Shield, 0f));
+        y.Add(new Framework_Enemy("brute_a1", "Brute", 1f, EnemyType.Melee, 4f));
+        y.Add(new Framework_Enemy("shield_a1", "Shield", .5f, EnemyType.Shield, 4f));
         levelDatabase.Add(new Framework_Level("act1lvl2", y));
 
-        z.Add(new Framework_Enemy("brute_a1", "Brute", 1f, EnemyType.Melee, 0f));
-        z.Add(new Framework_Enemy("shield_a1", "Shield", .5f, EnemyType.Shield, 0f));
-        z.Add(new Framework_Enemy("range_a1", "Range", 1f, EnemyType.Range, 2f));
+        z.Add(new Framework_Enemy("brute_a1", "Brute", 1f, EnemyType.Melee, 4f));
+        z.Add(new Framework_Enemy("shield_a1", "Shield", .5f, EnemyType.Shield, 4f));
+        z.Add(new Framework_Enemy("range_a1", "Range", 1f, EnemyType.Range, 15f));
         levelDatabase.Add(new Framework_Level("act1lvl3", z));
 
 
@@ -65,11 +66,17 @@ public class Framework_GameManager : MonoBehaviour
         {
             Framework_GameManager.humanoidSpriteDatabase.Add(aCostume.name, aCostume);
         }
+
+        Sprite[] allEnemy = Resources.LoadAll<Sprite>("Enemy Sprites/");
+        foreach (Sprite aEnemy in allEnemy)
+        {
+            Framework_GameManager.enemySpriteDatabase.Add(aEnemy.name, aEnemy);
+        }
     }
 
     public void GoToArena()
     {
-        currentLevel = levelDatabase[0];
+        currentLevel = levelDatabase[2];
         SceneManager.UnloadSceneAsync("MainMenu");
         SceneManager.LoadScene("Musuh", LoadSceneMode.Additive);
         StartCoroutine(Framework_MasterCamera.instance.DeleteCameras("Musuh"));
