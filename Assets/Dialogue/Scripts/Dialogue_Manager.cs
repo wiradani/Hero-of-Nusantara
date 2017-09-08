@@ -396,6 +396,49 @@ public class Dialogue_Manager : MonoBehaviour
 		Sprite nextImage = Resources.Load<Sprite> ("Dialog Background/BG Dialog Istana Majapahit");
 		yield return StartCoroutine (SlideshowImage (nextImage));
 
+		yield return StartCoroutine (TextScroll ("Arjuna", "Pengawal", Side.Right,
+			"Arjuna, Syukurlah kau kembali dengan selamat! Ah! Kuucapkan terimakasih untuk bantuan yang kau berikan sebelumnya. Mari, akan kubawa kau untuk menemui Paduka raja."
+			, dialogueText));
+
+		yield return StartCoroutine (TextScroll ("Arjuna", "Raden Wijaya", Side.Left,
+			"Arjuna... Benar, kan?  Terima kasih banyak karena kau telah membantu prajuritku dan juga telah bersedia untuk menahan pasukan musuh sebelumnya sehingga kami berhasil tiba di ibu kota ini. Walaupun pertemuan pertama kita mungkin tidak begitu baik tapi biarkan aku memperkenalkan diri terlebih dahulu, Namaku adalah Raden Wijaya, raja dari kerajaan Majapahit dan ini adalah prajurit setiaku, Mada."
+			, dialogueText));
+
+		yield return StartCoroutine (TextScroll ("Arjuna", "Raden Wijaya", Side.Right,
+			"Apa kau yakin, apa itu saja sudah cukup untukmu? mengingat apa yang telah kau lakukan terhadapku, tentu saja aku akan mengizinkanmu untuk beristirahat di istanaku ini hingga rasa lelahmu itu menghilang. Mada, Persiapkan kamar peristirahatkan untuk Arjuna. Pastikan kau menyiapkan kamar yang dapat membuat pikirannya damai dan menghilangkan rasa lelahnya."
+			, dialogueText));
+
+		yield return StartCoroutine (TextScroll ("Arjuna", "Raden Wijaya", Side.Left,
+			"Terimakasih Paduka."
+			, dialogueText));
+
+		yield return StartCoroutine (TextScroll ("Pengawal", "Raden Wijaya", Side.Left,
+			"Paduka! Paduka! Gawat!"
+			, dialogueText));
+
+		yield return StartCoroutine (TextScroll ("Pengawal", "Raden Wijaya", Side.Right,
+			"Ada apa prajurit ? Tenangkan dirimu sejenak."
+			, dialogueText));
+
+		yield return StartCoroutine (TextScroll ("Pengawal", "Raden Wijaya", Side.Right,
+			"Seluruh armada pasukan mongol sedang Menuju kearah istana dan dalam waktu dekat mereka akan tiba di Istana, Paduka!"
+			, dialogueText));
+
+		yield return StartCoroutine (TextScroll ("Pengawal", "Raden Wijaya", Side.Left,
+			"Apa?! Segera evakuasi warga! Utamakan perempuan dan anak anak terlebih dahulu! Bentuk benteng pertahanan disekitar istana dengan segera! ...Maaf Arjuna aku tahu kau lelah, tapi bisakah kau sekali lagi membantu ku?"
+			, dialogueText));
+
+		yield return StartCoroutine (TextScroll ("Arjuna", "Raden Wijaya", Side.Left,
+			"Tentu saja Paduka, saya bersedia membantu anda, lagi pula… hidangan yang Mada janjikan sebelumnya membuat saya ingin mencicipinya."
+			, dialogueText));
+
+		yield return StartCoroutine (TextScroll ("Arjuna", "Raden Wijaya", Side.Right,
+			"Terima kasih Arjuna, prajurit! Apapun yang terjadi kita harus melindungi warga! Biarkan mereka masuk kedalam istana! Dan kita pertahankan kerajaan ini hingga titik darah penghabisan!"
+			, dialogueText));
+
+		yield return StartCoroutine (TextScroll ("Pengawal", "Raden Wijaya", Side.Left,
+			"Segera Paduka!"
+			, dialogueText));
 	}
 }
 
