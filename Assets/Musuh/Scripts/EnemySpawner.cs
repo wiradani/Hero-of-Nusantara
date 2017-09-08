@@ -10,9 +10,8 @@ public class EnemySpawner : MonoBehaviour {
     int randNum;
 	// Use this for initialization
 	void Start () {
+        enemy = Resources.Load<EnemyBehavior>("Enemy/Enemy");
         enemyList = Framework_GameManager.currentLevel.enemyOnLevel;
-        Debug.Log("Enemy:  "+ enemyList.Count);
-        //enemy = (EnemyBehavior)Resources.Load("musuh");
     }
 
     bool waitActive = false;
@@ -21,7 +20,7 @@ public class EnemySpawner : MonoBehaviour {
     IEnumerator Wait()
     {
         waitActive = true;
-        yield return new WaitForSeconds(5.0F);
+        yield return new WaitForSeconds(8.0F);
         canSpawn = true;
         waitActive = false;
     }
@@ -37,8 +36,8 @@ public class EnemySpawner : MonoBehaviour {
         if (canSpawn)
         {
             SceneManager.SetActiveScene(SceneManager.GetSceneByName("Musuh"));
-            EnemyBehavior enemyClone = Instantiate(enemy, new Vector3(transform.position.x,
-                transform.position.y, 0), Quaternion.identity);
+            EnemyBehavior enemyClone = Instantiate<EnemyBehavior>(enemy, new Vector3(transform.position.x,
+                transform.position.y, 0), enemy.transform.rotation);
             enemyClone.enemyData = enemyList[randNum];
 
             canSpawn = false;
