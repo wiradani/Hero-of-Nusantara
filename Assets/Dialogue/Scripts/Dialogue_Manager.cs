@@ -194,6 +194,209 @@ public class Dialogue_Manager : MonoBehaviour
 			, dialogueText));
       
     }
+
+	IEnumerator Act1_Lvl11()
+	{
+		Sprite nextImage = Resources.Load<Sprite>("Dialog Background/Hutan Rimba");
+		yield return StartCoroutine(SlideshowImage(nextImage));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Hanoman", Side.Left,
+			"Ah... di-dimana ini? Jakarta? ...Sepertinya bukan… mungkinkah? Hanoman! Hanoman!"
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Hanoman", Side.Right,
+			"Memulai prosedur reboot… Check. Memulihkan sistem… Check. Memulai pengecekan… Check. Sistem darurat dijalankan… Activate."
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Hanoman", Side.Left,
+			"Sistem Darurat? Mungkinkah Kristal Etherion ditanganku ini... berhasil melintasi waktu?"
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Hanoman", Side.Right,
+			"Sistem di jalankan… Check, Tidak ada kerusakan berarti… Check. "
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Hanoman", Side.Left,
+			"Hanoman, dimana kita sekarang?"
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Hanoman", Side.Right,
+			"Saat ini Kita berada di tahun 1893, Tepatnya Perkampungan di Jawa daerah Maja."
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Hanoman", Side.Left,
+			"Perkampungan Daerah Maja?! Bi-bisakah kau mengatur Kristal Etherion ini untuk membawa kita kembali Ke masa depan?"
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Hanoman", Side.Right,
+			"Negative... terdapat kebocoran energi. Kristal Etherion tidak dapat melompat langsung menuju tahun 2104. Memerlukan waktu lebih untuk melakukan proses pengisian ulang tenaga."
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Hanoman", Side.Left,
+			"Hmm… kalau begitu, kita harus menunggu dulu beberapa saat di era ini, kah? ...Hanoman, dapatkah kau melakukan kontak dengan professor?"
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Hanoman", Side.Right,
+			"Negative… tidak menemukan frekuensi yang sesuai."
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Pengawal", Side.Right,
+			"Tahan! Siapa kau dan sedang apa disini?!"
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Pengawal", Side.Left,
+			"Stop! Kami hanya penduduk yang tersasar!"
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Pengawal", Side.Right,
+			"“Stop”, apa itu? ...Yang lebih penting, pakaian kalian aneh sekali untuk seorang penduduk setempat, Jangan Bilang kalau kalian adalah mata-mata pasukan mongol!!!"
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Pengawal", Side.Left,
+			"Hah? Mongol? Maksudmu Mongolia? Eh… Tu-tunggu sebentar! Tahan dulu dan tolong turunkan tombak di tanganmu sebentar!"
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Mongol", Side.Right,
+			"Itu Mereka, Pasukan majapahit! Cepat serang mereka!"
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Hanoman", Side.Right,
+			"Bahaya… Bahaya… kita harus pergi dari tempat ini, Arjuna!"
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Hanoman", Side.Left,
+			"Eh? Tu-tunggu sebentar! Pasukan… Majapahit? Apa kalian pasukan Majapahit?"
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Pengawal", Side.Right,
+			"Benar, Kami adalah Pasukan kerajaan Majapahit."
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Hanoman", Side.Left,
+			"Hanoman! Kita harus melindungi mereka! Aku tidak tahu mengapa dan aku tidak dapat memikirkan alasan yang tepat untuk saat ini... tapi aku punya perasaan buruk jika kita membiarkan pasukan yang sepertinya berasal dari Mongolia itu menangkap mereka ditempat seperti ini."
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Hanoman", Side.Right,
+			"Kristal Etherion menunjukkan reaksi? Baiklah Arjuna, memulai protokol bertahan… Activate, Defense Protocol!"
+			, dialogueText));
+	}
+
+	IEnumerator Act1_Lvl2()
+	{
+		Sprite nextImage = Resources.Load<Sprite>("Dialog Background/Hutan Rimba");
+		yield return StartCoroutine(SlideshowImage(nextImage));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Hanoman", Side.Left,
+			"Fiuh~, Hampir saja kita kalah~."
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Pengawal", Side.Right,
+			"Terima kasih hai orang asing, Maafkan kami karena telah menuduhmu sebagai mata-mata musuh tanpa mendengarkan pendapatmu terlebih dahulu."
+			, dialogueText));
+		
+		yield return StartCoroutine(TextScroll("Arjuna", "Pengawal", Side.Left,
+			"Ah, Iya tidak apa-apa… walaupun aku tidak terlalu mengerti keadaan kalian saat ini, tapi menurutku wajar jika kalian merasa curiga terhadap orang asing dalam situasi seperti ini. Tapi… Bolehkah aku bertanya satu hal?"
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Pengawal", Side.Right,
+			"Silahkan. Selama kami mampu menjawabnya, kami akan menjawab pertanyaanmu hai orang asing."
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Pengawal", Side.Left,
+			"Sebenarnya... ini dimana dan kenapa pasukan mongolia menyerang kalian?"
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Raden Wijaya", Side.Right,
+			"Mada! Mada! Apa kau baik-baik saja? ...dan siapa kau orang asing?!"
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Pengawal", "Raden Wijaya", Side.Left,
+			"Paduka! Terima kasih atas perhatian Paduka raja. Tapi seperti yang Paduka lihat, Hamba baik baik saja. Semua ini berkat bantuan orang asing ini, kami berhasil selamat dari pasukan musuh."
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Raden Wijaya", Side.Right,
+			"Hmm~ begitu, kah? Aku ucapkan terimakasih orang asing. Mada adalah salah satu prajurit terbaik kami di kerajaan ini."
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Raden Wijaya", Side.Left,
+			"Terima kasih Paduka, sebenarnya jika aku diperkenankan untuk bertanya... mengapa pasukan mongolia menyerang anda?"
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Raden Wijaya", Side.Right,
+			"Oh ya? Jadi begitu, kah? Sepertinya kau datang dari negeri nan jauh di daerah Timur. Baiklah Kalau begitu, Biarkan aku menjelaskannya secara singkat kepadamu. Setelah kerajaan singasari jatuh dan kehilangan pengaruhnya, pasukan mongol berbalik dan menyerang kerajaan Majapahit ini."
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Raden Wijaya", Side.Left,
+			"Kerajaan... Majapahit? Ka-kalau begitu, Berarti anda adalah Raden Wijaya pendiri kerajaan Majapahit itu?!"
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Pengawal", "Raden Wijaya", Side.Left,
+			"Maaf Paduka karena menyela pembicaraan Paduka saat ini tapi sebaiknya kita harus terus bergerak. Hamba rasa keadaan saat ini masih belum aman sampai kita tiba di wilayah ibu kota, Paduka."
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Pengawal", "Raden Wijaya", Side.Right,
+			"Kau benar Mada, sebaiknya kita terus bergerak sebelum bala bantuin pasukan Mongol tiba."
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Mongol", "Raden Wijaya", Side.Left,
+			"Itu mereka! Jangan biarkan mereka melarikan diri!"
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Raden Wijaya", Side.Left,
+			"Gawat! Paduka cepat pergi! Serahkan tempat ini padaku, aku akan menahan mereka untuk sementara!"
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Raden Wijaya", Side.Right,
+			"Menahan mereka? Sendirian? Apa kau yakin? Aku dapat membantumu--"
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Raden Wijaya", Side.Left,
+			" --Sebaiknya Paduka tetap menjaga jarak dan segera meninggalkan tempat ini! ...Tapi terimakasih karena telah mencemaskanku, namun biarkan aku sendiri yang menahan mereka. lagipula, apa jadinya jika ada peluru nyasar yang mengenai Paduka. "
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Pengawal", "Raden Wijaya", Side.Left,
+			"“Peluru Nyasar”, Walaupun aku tidak tahu benda apa yang kau maksud, Tapi hamba setuju dengan pendapatnya, Paduka. Cepat kita pergi dari tempat ini, Paduka. Kalau tidak salah namamu itu… "
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Raden Wijaya", Side.Left,
+			"Arjuna, itulah namaku."
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Pengawal", Side.Right,
+			"Arjuna… nama yang bagus dan juga kuat, Bertahanlah dan pastikan kau kembali dengan selamat, kami akan menunggumu di ibu kota."
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Hanoman", Side.Right,
+			"Apa kau yakin arjuna?"
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Hanoman", Side.Left,
+			"Tentu saja aku yakin, lagi pula…  jika Raden Wijaya tidak selamat dari pertempuran ini, Maka Majapahit tidak akan pernah berdiri dan itu dapat membuat sejarah bergerak kearah yang tidak seharusnya, oleh karena itu, kupikir hanya kitalah yang dapat membantu mereka untuk saat ini."
+			, dialogueText));
+
+		yield return StartCoroutine(TextScroll("Arjuna", "Hanoman", Side.Right,
+			"Baiklah jika itu adalah pilihanmu, Arjuna. Memulai protokol bertahan… Activate, Defense Protocol!"
+			, dialogueText));
+	
+	}
+
+	IEnumerator Act1_Lvl3()
+	{
+		Sprite nextImage = Resources.Load<Sprite> ("Dialog Background/Hutan Rimba");
+		yield return StartCoroutine (SlideshowImage (nextImage));
+
+		yield return StartCoroutine (TextScroll ("Arjuna", "Hanoman", Side.Left,
+			"Sepertinya sudah tidak ada tanda-tanda musuh, kita harus segera menuju Ibu kota Majapahit."
+			, dialogueText));
+		
+		yield return StartCoroutine (TextScroll ("Arjuna", "Hanoman", Side.Right,
+			"Kau benar Hanoman, aku rasa pasukan mongolia tidak akan menyerah begitu saja."
+			, dialogueText));
+
+		Sprite nextImage = Resources.Load<Sprite> ("Dialog Background/BG Dialog Istana Majapahit");
+		yield return StartCoroutine (SlideshowImage (nextImage));
+
+	}
 }
 
 public enum Side
