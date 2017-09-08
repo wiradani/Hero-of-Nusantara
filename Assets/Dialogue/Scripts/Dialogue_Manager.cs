@@ -393,8 +393,8 @@ public class Dialogue_Manager : MonoBehaviour
 			"Kau benar Hanoman, aku rasa pasukan mongolia tidak akan menyerah begitu saja."
 			, dialogueText));
 
-		Sprite nextImage = Resources.Load<Sprite> ("Dialog Background/BG Dialog Istana Majapahit");
-		yield return StartCoroutine (SlideshowImage (nextImage));
+		nextImage = Resources.Load<Sprite>("Dialog Background/BG Dialog Dialog Istana Majapahit");
+		yield return StartCoroutine(SlideshowImage(nextImage));
 
 		yield return StartCoroutine (TextScroll ("Arjuna", "Pengawal", Side.Right,
 			"Arjuna, Syukurlah kau kembali dengan selamat! Ah! Kuucapkan terimakasih untuk bantuan yang kau berikan sebelumnya. Mari, akan kubawa kau untuk menemui Paduka raja."
