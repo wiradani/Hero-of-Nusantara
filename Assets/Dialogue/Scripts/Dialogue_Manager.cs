@@ -13,7 +13,7 @@ public class Dialogue_Manager : MonoBehaviour
     public bool skipPhase = false;
     public Image bg;
 
-    public string x = "Halo namaku Wira";
+    public string x = "Halo namaku Xxx";
     // Use this for initialization
     void Start()
     {
