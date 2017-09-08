@@ -19,7 +19,11 @@ public class Dialogue_Manager : MonoBehaviour
     {
         Dialogue_Database.SetDatabase();
 
-        StartCoroutine(Act1_Lvl1());
+		//StartCoroutine(Act1_Lvl_Prolog());
+		//StartCoroutine(Act1_Lvl_1());
+		//StartCoroutine(Act1_Lvl_2());
+		//StartCoroutine(Act1_Lvl_3());
+		StartCoroutine(Act1_Lvl_4());
     }
 
     void Update()
@@ -131,7 +135,7 @@ public class Dialogue_Manager : MonoBehaviour
 
     }
 
-    IEnumerator Act1_Lvl1()
+    IEnumerator Act1_Lvl_Prolog()
     {
 		yield return StartCoroutine(TextScroll("Jakarta 2104, Profesor Dharma seorang jenuis peraih nobel fisika berhasil menciptakan sebuah mesin waktu. Mesin waktu ini berbentuk sebuah kristal bernama “Etherion” yang dibuat bersama dengan asistennya, Arjuna. Profesor berharap dengan adanya mesin waktu ini, ia dapat mengungkap detail sejarah yang telah terlupakan."
             , prologueText));
@@ -158,7 +162,7 @@ public class Dialogue_Manager : MonoBehaviour
 			"Benar apa kata Arjuna. Semua sistem berjalan dengan baik dan kita dapat memulai uji coba ini kapan pun."
 			, dialogueText));
 		
-		yield return StartCoroutine(TextScroll("Hanoman", "Profesor Dharma", Side.Left,
+		yield return StartCoroutine(TextScroll("Hanoman", "Profesor Dharma", Side.Right,
 			"Baiklah kalau begitu. Kita akan memulai uji cobanya."
 			, dialogueText));
 
@@ -166,15 +170,15 @@ public class Dialogue_Manager : MonoBehaviour
         nextImage = Resources.Load<Sprite>("Dialog Background/BG Dialog Lab 2 - Mid");
         yield return StartCoroutine(SlideshowImage(nextImage));
 
-		yield return StartCoroutine(TextScroll("Hanoman", "Profesor Dharma", Side.Left,
+		yield return StartCoroutine(TextScroll("Arjuna", "Profesor Dharma", Side.Right,
 			"Batalkan uji coba! Cepat batalkan! Hanoman aktifkan protokol pencegahan segera!"
 			, dialogueText));
 
-		yield return StartCoroutine(TextScroll("Arjuna", "Profesor Dharma", Side.Right,
+		yield return StartCoroutine(TextScroll("Arjuna", "Profesor Dharma", Side.Left,
 			"Kristal Etherion tidak merespon apapun prof! Aktifkan override protocol!"
 			, dialogueText));
 		
-		yield return StartCoroutine(TextScroll("Arjuna", "Hanoman", Side.Left,
+		yield return StartCoroutine(TextScroll("Arjuna", "Hanoman", Side.Right,
 			"Error… error… Program Pencegahan tidak dapat dibatalkan. Memulai inisiai perjalan waktu…."
 			, dialogueText));
 
@@ -182,20 +186,20 @@ public class Dialogue_Manager : MonoBehaviour
 			"Arjuna cepat lepaskan Kristal Etherion tersebut!"
 			, dialogueText));
 
-		yield return StartCoroutine(TextScroll("Arjuna", "Profesor Dharma", Side.Right,
+		yield return StartCoroutine(TextScroll("Arjuna", "Profesor Dharma", Side.Left,
 			"argh!!!"
 			, dialogueText));
 		
         nextImage = Resources.Load<Sprite>("Dialog Background/BG Dialog Lab 3 - Last");
         yield return StartCoroutine(SlideshowImage(nextImage));
 	
-		yield return StartCoroutine(TextScroll("", "Profesor Dharma", Side.Left,
+		yield return StartCoroutine(TextScroll("", "Profesor Dharma", Side.Right,
 			"Arjunaa!!!"
 			, dialogueText));
       
     }
 
-	IEnumerator Act1_Lvl11()
+	IEnumerator Act1_Lvl_1()
 	{
 		Sprite nextImage = Resources.Load<Sprite>("Dialog Background/Hutan Rimba");
 		yield return StartCoroutine(SlideshowImage(nextImage));
@@ -281,7 +285,7 @@ public class Dialogue_Manager : MonoBehaviour
 			, dialogueText));
 	}
 
-	IEnumerator Act1_Lvl2()
+	IEnumerator Act1_Lvl_2()
 	{
 		Sprite nextImage = Resources.Load<Sprite>("Dialog Background/Hutan Rimba");
 		yield return StartCoroutine(SlideshowImage(nextImage));
@@ -380,7 +384,7 @@ public class Dialogue_Manager : MonoBehaviour
 	
 	}
 
-	IEnumerator Act1_Lvl3()
+	IEnumerator Act1_Lvl_3()
 	{
 		Sprite nextImage = Resources.Load<Sprite> ("Dialog Background/Hutan Rimba");
 		yield return StartCoroutine (SlideshowImage (nextImage));
@@ -393,7 +397,7 @@ public class Dialogue_Manager : MonoBehaviour
 			"Kau benar Hanoman, aku rasa pasukan mongolia tidak akan menyerah begitu saja."
 			, dialogueText));
 
-		nextImage = Resources.Load<Sprite>("Dialog Background/BG Dialog Dialog Istana Majapahit");
+		nextImage = Resources.Load<Sprite>("Dialog Background/BG Dialog Istana Majapahit");
 		yield return StartCoroutine(SlideshowImage(nextImage));
 
 		yield return StartCoroutine (TextScroll ("Arjuna", "Pengawal", Side.Right,
@@ -438,6 +442,72 @@ public class Dialogue_Manager : MonoBehaviour
 
 		yield return StartCoroutine (TextScroll ("Pengawal", "Raden Wijaya", Side.Left,
 			"Segera Paduka!"
+			, dialogueText));
+	}
+
+	IEnumerator Act1_Lvl_4()
+	{
+		Sprite nextImage = Resources.Load<Sprite> ("Dialog Background/BG Dialog Perkampungan Majapahit 2");
+		yield return StartCoroutine (SlideshowImage (nextImage));
+
+		yield return StartCoroutine (TextScroll ("Arjuna", "Pengawal", Side.Right,
+			"Arjuna ! , kita berhasil memukul mundur musuh "
+			, dialogueText));
+
+		yield return StartCoroutine (TextScroll ("Arjuna", "Pengawal", Side.Left,
+			"Huf , ya tapi yang tadi hampir saja"
+			, dialogueText));
+
+		yield return StartCoroutine (TextScroll ("Rakyat", "Raden Wijaya", Side.Right,
+			"Argh!!"
+			, dialogueText));
+
+		yield return StartCoroutine (TextScroll ("Rakyat", "Raden Wijaya", Side.Left,
+			"Paduka ! anda lebih baik segera mundur,luka Paduka harus segera diobati"
+			, dialogueText));
+
+		yield return StartCoroutine (TextScroll ("Rakyat", "Raden Wijaya", Side.Right,
+			"Tidak ! aku masih bisa bertahan , obati dulu luka yang lain"
+			, dialogueText));
+
+		yield return StartCoroutine (TextScroll ("Rakyat", "Raden Wijaya", Side.Left,
+			"Paduka ! lihat itu …."
+			, dialogueText));
+
+		yield return StartCoroutine (TextScroll ("Rakyat", "Raden Wijaya", Side.Right,
+			"jadi pemimpin musuh memilih memunculkan dirinya sekarang"
+			, dialogueText));
+
+		yield return StartCoroutine (TextScroll ("Rakyat", "Raden Wijaya", Side.Left,
+			"Jangan paduka ! paduka tidak akan mampu menghadapinya dengan luka seperti itu"
+			, dialogueText));
+
+		yield return StartCoroutine (TextScroll ("Arjuna", "Raden Wijaya", Side.Left,
+			"Paduka, anda lebih baik segera mundur ke Istana, Rakyat membutuhkan pemimpinnya tetap kuat dikala situasi seperti saat ini, anda harus mampu mengendalikan keadaan "
+			, dialogueText));
+
+		yield return StartCoroutine (TextScroll ("Arjuna", "Raden Wijaya", Side.Right,
+			"… Kau benar Arjuna, baiklah, Mada! kuserahkan baris pertahanan kepada mu"
+			, dialogueText));
+
+		yield return StartCoroutine (TextScroll ("Pengawal", "Raden Wijaya", Side.Left,
+			"laksanakan daulat paduka"
+			, dialogueText));
+
+		yield return StartCoroutine (TextScroll ("Arjuna", "Hanoman", Side.Left,
+			"Hanoman, sepertinya kita harus mengeluarkan segala yang kita punya"
+			, dialogueText));
+
+		yield return StartCoroutine (TextScroll ("Arjuna", "Hanoman", Side.Right,
+			"Tapi Arjuna energi yang dikumpulkan etherion sudah siap untuk kembali ke masa depan"
+			, dialogueText));
+
+		yield return StartCoroutine (TextScroll ("Arjuna", "Hanoman", Side.Left,
+			"Tidak apa Hanoman,bila Majapahit runtuh tidak ada masa depan untuk kembali"
+			, dialogueText));
+
+		yield return StartCoroutine (TextScroll ("Arjuna", "Hanoman", Side.Right,
+			"Baik Arjuna,memulai melepas seluruh energi etherion"
 			, dialogueText));
 	}
 }
