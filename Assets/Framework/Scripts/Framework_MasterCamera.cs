@@ -20,9 +20,7 @@ public class Framework_MasterCamera : MonoBehaviour
 
         foreach (GameObject c in goArray)
         {
-
             if (c.GetComponent<Framework_MasterCamera>() == null && c.GetComponent<Camera>() != null)
-
             {
                 Destroy(c.gameObject);
             }
