@@ -19,6 +19,7 @@ public class Player : MonoBehaviour {
 
 	public GameObject[] predictTrails;
 
+<<<<<<< HEAD
 	Animator anim;
 
 	void Awake(){
@@ -29,6 +30,8 @@ public class Player : MonoBehaviour {
 	}
 
 
+=======
+>>>>>>> master
 	// Use this for initialization
 	void Start () {
 		anim = gameObject.GetComponentInChildren<Animator> ();
