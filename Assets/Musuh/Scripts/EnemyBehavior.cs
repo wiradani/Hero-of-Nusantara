@@ -10,23 +10,23 @@ public class EnemyBehavior : MonoBehaviour {
     public WeaponBehavior weapon;
     bool inArea = false;
 	public float speed = 1;
+    public int darah;
+
+    private Vector3 posisi;
 
     //public static Enemy_BoneStructure bones = GameObject.Enemy_BoneStructure();
 	// Use this for initialization
 	void Start () {
         enemy = this.gameObject;
+        
         enemy.name = enemyData.id;
         var bones = enemy.GetComponent<Enemy_BoneStructure>();
         ////// Get Bones Sprites //////
         bones.SetSprites(enemyData.id, enemyData.type);
-        //Framework_GameManager.enemySpriteDatabase[enemyData.id]
-        /*
-        if (enemyData.type == EnemyType.Range)
-        {
-            enemy.GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("enemy1_1");
-            weapon = Resources.Load<WeaponBehavior>("werange");
 
-        }
+        if (enemyData.type == EnemyType.Range)
+            weapon = Resources.Load<WeaponBehavior>("Enemy/werange");
+        /*
         else if (enemyData.type == EnemyType.Melee)
         {
             enemy.GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("enemy1_9");
@@ -45,7 +45,8 @@ public class EnemyBehavior : MonoBehaviour {
         
         player = GameObject.Find("player");
         enemy.GetComponent<Animator>().speed = 0.75F;
-        enemy.GetComponent<TrailRenderer>().enabled = false;
+        //var trail = GameObject.Find("Weapon Head");
+        //trail.GetComponent<TrailRenderer>().enabled = false;
     }
 
     bool waitActive = false;
@@ -62,7 +63,10 @@ public class EnemyBehavior : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         if (!enemy.GetComponent<CircleCollider2D>().IsTouching(player.GetComponent<Collider2D>()))
+        {
+            StopAllCoroutines();
             inArea = false;
+        }
         else inArea = true;
 
         if (!inArea)
@@ -130,9 +134,9 @@ public class EnemyBehavior : MonoBehaviour {
 
     void Attack ()
     {
-        
-        Vector3 weapon_position = new Vector3(enemy.GetComponent<Transform>().position.x + 0.36F,
-                                                enemy.GetComponent<Transform>().position.y + 0.84F, 0);
+        posisi = new Vector3(transform.position.x - 7.716f, transform.position.y, 0);
+        Vector3 weapon_position = new Vector3(posisi.x + 0.36F,
+                                                posisi.y + 0.84F, 0);
 
         WeaponBehavior IO = Instantiate<WeaponBehavior>(weapon, weapon_position, weapon.transform.rotation);
         IO.ifParent = false;
