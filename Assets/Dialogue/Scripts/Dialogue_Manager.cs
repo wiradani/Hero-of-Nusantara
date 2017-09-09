@@ -451,11 +451,11 @@ public class Dialogue_Manager : MonoBehaviour
 		yield return StartCoroutine (SlideshowImage (nextImage));
 
 		yield return StartCoroutine (TextScroll ("Arjuna", "Pengawal", Side.Right,
-			"Arjuna ! , kita berhasil memukul mundur musuh "
+			"Arjuna! Apa Kita berhasil memukul mundur musuh? "
 			, dialogueText));
 
 		yield return StartCoroutine (TextScroll ("Arjuna", "Pengawal", Side.Left,
-			"Huf , ya tapi yang tadi hampir saja"
+			"Fuhh ya kita berhasil, tapi hampir saja kita yang berhasil mereka kalahkan.\n"
 			, dialogueText));
 
 		yield return StartCoroutine (TextScroll ("Rakyat", "Raden Wijaya", Side.Right,
@@ -463,7 +463,7 @@ public class Dialogue_Manager : MonoBehaviour
 			, dialogueText));
 
 		yield return StartCoroutine (TextScroll ("Rakyat", "Raden Wijaya", Side.Left,
-			"Paduka ! anda lebih baik segera mundur,luka Paduka harus segera diobati"
+			"Paduka! A-apa anda baik-baik saja?! Paduka lebih baik segera mundur, luka Paduka harus segera diobati!"
 			, dialogueText));
 
 		yield return StartCoroutine (TextScroll ("Rakyat", "Raden Wijaya", Side.Right,
@@ -475,39 +475,39 @@ public class Dialogue_Manager : MonoBehaviour
 			, dialogueText));
 
 		yield return StartCoroutine (TextScroll ("Rakyat", "Raden Wijaya", Side.Right,
-			"jadi pemimpin musuh memilih memunculkan dirinya sekarang"
+			"Akhirnya... pemimpin musuh memilih untuk mengambil bagian dalam penyerangan ini."
 			, dialogueText));
 
 		yield return StartCoroutine (TextScroll ("Rakyat", "Raden Wijaya", Side.Left,
-			"Jangan paduka ! paduka tidak akan mampu menghadapinya dengan luka seperti itu"
+			"Paduka! Apa yang Paduka lakukan?! Jangan Bilang--! Paduka harus lebih mengkhawatirkan keadaan Paduka terlebih dahulu! Jika Paduka memaksakan diri, Paduka tidak akan mampu menghadapi pemimpin musuh dengan luka seperti itu."
 			, dialogueText));
 
 		yield return StartCoroutine (TextScroll ("Arjuna", "Raden Wijaya", Side.Left,
-			"Paduka, anda lebih baik segera mundur ke Istana, Rakyat membutuhkan pemimpinnya tetap kuat dikala situasi seperti saat ini, anda harus mampu mengendalikan keadaan "
+			"Paduka, Paduka lebih baik segera mundur ke Istana, rakyat membutuhkan sosok seorang pemimpin dalam menghadapi situasi seperti ini, jika terjadi sesuatu terhadap Paduka, tidak hanya moral pasukan yang akan menurun, rakyat akan menjadi putus asa, dan pada akhirnya semua itu hanya akan berjalan sesuai dengan apa yang diinginkan oleh pasukan musuh."
 			, dialogueText));
 
 		yield return StartCoroutine (TextScroll ("Arjuna", "Raden Wijaya", Side.Right,
-			"… Kau benar Arjuna, baiklah, Mada! kuserahkan baris pertahanan kepada mu"
+			"K-kau benar Arjuna, baiklah kalau begitu, Mada! Kuserahkan baris pertahanan kepada mu."
 			, dialogueText));
 
 		yield return StartCoroutine (TextScroll ("Pengawal", "Raden Wijaya", Side.Left,
-			"laksanakan daulat paduka"
+			"Siap paduka! Walaupun nyawa ini taruhannya, akan kupastikan tidak seorangpun pasukan musuh berhasil menerobos barisan pertahanan pasukan kita!"
 			, dialogueText));
 
 		yield return StartCoroutine (TextScroll ("Arjuna", "Hanoman", Side.Left,
-			"Hanoman, sepertinya kita harus mengeluarkan segala yang kita punya"
+			"Hanoman, sepertinya kita harus mengeluarkan seluruh kemampuan kita."
 			, dialogueText));
 
 		yield return StartCoroutine (TextScroll ("Arjuna", "Hanoman", Side.Right,
-			"Tapi Arjuna energi yang dikumpulkan etherion sudah siap untuk kembali ke masa depan"
+			"Tapi Arjuna, energi yang dikumpulkan Kristal Etherion sudah siap untuk kembali ke masa depan."
 			, dialogueText));
 
 		yield return StartCoroutine (TextScroll ("Arjuna", "Hanoman", Side.Left,
-			"Tidak apa Hanoman,bila Majapahit runtuh tidak ada masa depan untuk kembali"
+			" Tidak apa Hanoman, bila Majapahit runtuh... tidak akan ada masa depan untuk kembali."
 			, dialogueText));
 
 		yield return StartCoroutine (TextScroll ("Arjuna", "Hanoman", Side.Right,
-			"Baik Arjuna,memulai melepas seluruh energi etherion"
+			"Baik Arjuna, melepaskan seluruh energi pada Kristal Etherion… Activate, Etherion Protocol Overdrive!"
 			, dialogueText));
 	}
 }
