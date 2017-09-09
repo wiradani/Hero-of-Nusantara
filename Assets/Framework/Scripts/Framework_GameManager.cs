@@ -25,16 +25,16 @@ public class Framework_GameManager : MonoBehaviour
 
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
     }
-	
+
     // Update is called once per frame
     void Update()
     {
-		
+
     }
 
     public void SetDatabase()
     {
-        
+
         weaponDatabase.Add(new Framework_Weapon("sling", 0.1f, "Sling", false, 10));
         weaponDatabase.Add(new Framework_Weapon("javelin", 0.5f, "Javelin", false, 20));
 
