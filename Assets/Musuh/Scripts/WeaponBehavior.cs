@@ -13,7 +13,7 @@ public class WeaponBehavior : MonoBehaviour {
     
 	// Use this for initialization
 	void Start () {
-        player = GameObject.Find("player");
+        player = GameObject.Find("Player");
 	}
 	
 	// Update is called once per frame
@@ -23,7 +23,7 @@ public class WeaponBehavior : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        if (coll.gameObject.name=="player")
+        if (coll.gameObject.name=="Player")
         {
             hopping = false;
             playerHit = true;

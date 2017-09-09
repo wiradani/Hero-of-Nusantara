@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyBehavior : MonoBehaviour {
     public GameObject player;
@@ -43,7 +44,7 @@ public class EnemyBehavior : MonoBehaviour {
         enemy.GetComponent<CircleCollider2D>().radius = enemyData.stoppingDistance;
         speed = enemyData.speed;
         
-        player = GameObject.Find("player");
+        player = GameObject.Find("Player");
         enemy.GetComponent<Animator>().speed = 0.75F;
         //var trail = GameObject.Find("Weapon Head");
         //trail.GetComponent<TrailRenderer>().enabled = false;
@@ -138,6 +139,7 @@ public class EnemyBehavior : MonoBehaviour {
         Vector3 weapon_position = new Vector3(posisi.x + 0.36F,
                                                 posisi.y + 0.84F, 0);
 
+		SceneManager.SetActiveScene(SceneManager.GetSceneByName("Player"));
         WeaponBehavior IO = Instantiate<WeaponBehavior>(weapon, weapon_position, weapon.transform.rotation);
         IO.ifParent = false;
         IO.hopping = false;
