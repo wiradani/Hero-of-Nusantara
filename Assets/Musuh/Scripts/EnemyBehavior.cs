@@ -65,9 +65,9 @@ public class EnemyBehavior : MonoBehaviour {
         if (!enemy.GetComponent<CircleCollider2D>().IsTouching(player.GetComponent<Collider2D>()))
         {
             StopAllCoroutines();
-            inArea = false;
+            inArea = false; resetAll();
         }
-        else inArea = true;
+        else { inArea = true; }
 
         if (!inArea)
         {
@@ -188,5 +188,11 @@ public class EnemyBehavior : MonoBehaviour {
         canAttack = false;
         stopAttack = false;
         waitActive = false;
+    }
+
+    void GetDamage(int damage)
+    {
+        darah -= damage;
+        if (darah <= 0) Destroy(gameObject);
     }
 }
