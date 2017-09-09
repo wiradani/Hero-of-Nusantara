@@ -19,17 +19,20 @@ public class Player : MonoBehaviour {
 
 	public GameObject[] predictTrails;
 
+	Animator anim;
 
 	void Awake(){
 		rb = GetComponent<Rigidbody2D> ();
 		rb.isKinematic = true;
+		SpriteRenderer sr = GetComponent<SpriteRenderer> ();
+		sr.enabled = false;
 	}
 
 
 	// Use this for initialization
 	void Start () {
-		
-
+		anim = gameObject.GetComponentInChildren<Animator> ();
+		anim.Play ("Idle");
 		predictor = GameObject.FindGameObjectWithTag("Predictor");
 		rbPredictor = predictor.GetComponent<Rigidbody2D> ();
 		rbPredictor.isKinematic = true;
@@ -49,6 +52,7 @@ public class Player : MonoBehaviour {
 	void Update () {
 
 		if (isPressed) {
+			anim.Play ("Shoot Ketapel");
 			srPointer.enabled = true;
 			Vector2 mousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 			Vector2 newMousePos;
@@ -78,9 +82,12 @@ public class Player : MonoBehaviour {
 			}*/
 		} else {
 			if (Input.GetMouseButton (0)) {
+				anim.Play ("Run");
 				rb.velocity = new Vector2 (-2f, 0);
-			}else if(Input.GetMouseButtonUp(0))
+			} else if (Input.GetMouseButtonUp (0)) {
+				anim.Play ("Idle");
 				rb.velocity = new Vector2 (0, 0);
+			}
 		}
 
 	}

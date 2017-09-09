@@ -22,12 +22,12 @@ public class ShieldBehaviour : MonoBehaviour {
 		gameObject.transform.position = player.gameObject.transform.position + offset;
 	}
 
-	void Activate(){
+	public void Activate(){
 		StartCoroutine (ShieldDuration ());
 	
 	}
 
-	void Deactivate(){
+	public void Deactivate(){
 		sr.enabled = false;
 		col.enabled = false;
 	}

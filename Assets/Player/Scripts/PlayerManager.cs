@@ -4,24 +4,27 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour {
-	public GameObject newPlayer;
+	public GameObject newPlayer, Player;
+	Transform parent;
+	public bool buttonPress=false;
+
 
 	void Awake(){
+		
+		parent = Player.GetComponent<Transform> ();
+		parent.localScale = new Vector3 (0.5f, 0.5f, parent.localScale.z);
 		SceneManager.SetActiveScene (SceneManager.GetSceneByName ("Player"));
-		GameObject x = Instantiate (newPlayer, transform.position, Quaternion.identity);
-		x.AddComponent<Rigidbody2D> ();
-		x.AddComponent<CircleCollider2D> ();
-		x.AddComponent<Player>();
+		GameObject x = Instantiate (newPlayer, transform.position, Quaternion.identity, parent);
+
+		//x.AddComponent<Rigidbody2D> ();
+		//x.AddComponent<CircleCollider2D> ();
+		//x.AddComponent<Player>();
 
 	}
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+
+	//public void PressButton(){
+		//button
+	//}
 
 }

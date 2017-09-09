@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour {
 	Player player;
 	public Vector2 pos, playerPos;
 
-	public int damage=1,weaponDamage;
+	public int damage=1,weaponDamage=0, totalDamage;
 	/*
 	 *base damage = 1
 	 *total damage = damage+weapon dmg
@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour {
 	void Start(){
 		player = GameObject.FindObjectOfType<Player>();
 		//if(player.skillActive)
-			
+		totalDamage = damage+weaponDamage;
 
 	}
 
@@ -40,7 +40,8 @@ public class Projectile : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D col){
-		//col.gameObject.SendMessage("", total damage, SendMessageOptions.DontRequireReceiver);
+		col.gameObject.SendMessage("GetDamage", totalDamage, SendMessageOptions.DontRequireReceiver);
+		Dead();
 	}
 }
 
