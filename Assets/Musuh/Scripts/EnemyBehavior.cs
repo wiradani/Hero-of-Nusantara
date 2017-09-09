@@ -11,7 +11,7 @@ public class EnemyBehavior : MonoBehaviour {
     public WeaponBehavior weapon;
     bool inArea = false;
 	public float speed = 1;
-    public int darah;
+    public int darah=1;
 
     private Vector3 posisi;
 

@@ -19,6 +19,7 @@ public class Player : MonoBehaviour {
 
 	public GameObject[] predictTrails;
 
+	public int darah=5;
 
 	Animator anim;
 
@@ -174,5 +175,13 @@ public class Player : MonoBehaviour {
 			predictTrail = predictTrails [i];
 			predictTrail.transform.position = new Vector2 (rbPredictor.position.x, rbPredictor.position.y);
 		}
+	}
+
+	void HitDamage(int value){
+		darah -= value;
+		if (darah <= 0) {
+			Destroy (gameObject);
+		}
+			
 	}
 }
