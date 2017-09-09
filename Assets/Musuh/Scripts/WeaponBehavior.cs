@@ -18,12 +18,7 @@ public class WeaponBehavior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (enemyType == EnemyType.Range)
-            StartCoroutine(Parabolic(1.25f,0.75f));
-        //else if (enemyType == EnemyType.Melee)
-        //    MeleeAttack();
-        //else if (enemyType == EnemyType.Shield)
-        //    StartCoroutine(ShieldAttack());
+        StartCoroutine(Parabolic(1.25f,0.75f));
 	}
 
     void OnCollisionEnter2D(Collision2D coll)

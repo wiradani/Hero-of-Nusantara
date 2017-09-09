@@ -36,8 +36,8 @@ public class EnemySpawner : MonoBehaviour {
         if (canSpawn)
         {
             SceneManager.SetActiveScene(SceneManager.GetSceneByName("Musuh"));
-            EnemyBehavior enemyClone = Instantiate<EnemyBehavior>(enemy, new Vector3(transform.position.x,
-                transform.position.y, 0), enemy.transform.rotation);
+            EnemyBehavior enemyClone = Instantiate<EnemyBehavior>(enemy, new Vector3(transform.position.x+7.716f,
+                transform.position.y, 0), transform.rotation);
             enemyClone.enemyData = enemyList[randNum];
 
             canSpawn = false;
