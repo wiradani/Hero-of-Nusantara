@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Mainmenu_Manager : MonoBehaviour
 {
+    public GameObject selectLevel;
+    public GameObject act1;
 
     public void GoToUpgrade()
     {
@@ -14,5 +16,11 @@ public class Mainmenu_Manager : MonoBehaviour
     public void GoToArena()
     {
         Framework_GameManager.instance.GoToArena();
+    }
+
+    public void GoToAct1()
+    {
+        selectLevel.SetActive(false);
+        act1.SetActive(true);
     }
 }
