@@ -49,10 +49,11 @@ public class ShieldBehaviour : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D col){
 		
 			col.gameObject.SendMessage("Dead", SendMessageOptions.DontRequireReceiver);
+		print("collideEnter");
 		
 	}
 	void OnCollisionStay2d(Collision2D col){
-		
+		print("collideStay");
 			col.gameObject.SendMessage ("Dead", SendMessageOptions.DontRequireReceiver);
 	}
 }
