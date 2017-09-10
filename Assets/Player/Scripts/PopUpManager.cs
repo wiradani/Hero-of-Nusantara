@@ -26,7 +26,6 @@ public class PopUpManager : MonoBehaviour {
 		ShowCanvas ();
 	}
 
-
 	public void OpenHelp(){
 		helpWindow.SetActive (true);
 		Time.timeScale = 0;
@@ -38,4 +37,10 @@ public class PopUpManager : MonoBehaviour {
 		Time.timeScale = 1;
 		ShowCanvas ();
 	}
+
+	public void BacktoMenu(){
+		Time.timeScale = 1;
+		Framework_GameManager.instance.BackToMainMenu ();
+	}
+		
 }
