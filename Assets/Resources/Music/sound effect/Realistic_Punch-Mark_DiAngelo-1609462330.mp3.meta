@@ -1,6 +1,11 @@
 fileFormatVersion: 2
-guid: 17556ee4b734a9c4fbc82175539e4982
-timeCreated: 1505020400
+<<<<<<< HEAD:Assets/Resources/Music/sound effect/Realistic_Punch-Mark_DiAngelo-1609462330.mp3.meta
+guid: f05e701a086e8a040a031b24c23cead5
+timeCreated: 1505029986
+=======
+guid: dfa7b1b5f59e63c4cb4ae5c726874d4f
+timeCreated: 1505028539
+>>>>>>> 72f8fda7b3f4bf0bcd4e57093920aa8e8b8208e5:Assets/Resources/Music/Realistic_Punch-Mark_DiAngelo-1609462330.mp3.meta
 licenseType: Free
 AudioImporter:
   serializedVersion: 6
