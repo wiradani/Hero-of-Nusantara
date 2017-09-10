@@ -6,20 +6,26 @@ public class ShieldBehaviour : MonoBehaviour {
 	SpriteRenderer sr;
 	CircleCollider2D col;
 	Player player;
+	BoxCollider2D playerCol;
 	Vector3 offset;
+	EnemyBehavior[] enemy;
+	public bool immortal=false;
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindObjectOfType<Player> ();
+		enemy = GameObject.FindObjectsOfType<EnemyBehavior> ();
+		playerCol = player.GetComponent<BoxCollider2D> ();
 		sr = GetComponent<SpriteRenderer> ();
 		col = GetComponent<CircleCollider2D> ();
 		sr.enabled = false;
 		col.enabled = false;
 		offset = new Vector3 (1, 0, gameObject.transform.position.z);
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		gameObject.transform.position = player.gameObject.transform.position + offset;
+
 	}
 
 	public void Activate(){
@@ -28,13 +34,25 @@ public class ShieldBehaviour : MonoBehaviour {
 	}
 
 	public void Deactivate(){
+		immortal = false;
 		sr.enabled = false;
 		col.enabled = false;
 	}
 	IEnumerator ShieldDuration(){
+		immortal = true;
 		sr.enabled = true;
 		col.enabled = true;
-		yield return new WaitForSeconds (3f);
+		yield return new WaitForSeconds (5f);
 		Deactivate ();
+	}
+
+	void OnCollisionEnter2D(Collision2D col){
+		
+			col.gameObject.SendMessage("Dead", SendMessageOptions.DontRequireReceiver);
+		
+	}
+	void OnCollisionStay2d(Collision2D col){
+		
+			col.gameObject.SendMessage ("Dead", SendMessageOptions.DontRequireReceiver);
 	}
 }

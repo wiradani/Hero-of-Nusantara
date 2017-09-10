@@ -12,7 +12,7 @@ public class EnemyBehavior : MonoBehaviour {
     bool inArea = false;
 	public float speed = 1;
     public int darah=1;
-
+	private GameObject trail;
     private Vector3 posisi;
 
     //public static Enemy_BoneStructure bones = GameObject.Enemy_BoneStructure();
@@ -27,6 +27,11 @@ public class EnemyBehavior : MonoBehaviour {
 
         if (enemyData.type == EnemyType.Range)
             weapon = Resources.Load<WeaponBehavior>("Enemy/werange");
+
+		if (enemyData.type == EnemyType.Melee)
+			trail = GameObject.Find("RWHead");
+		else if (enemyData.type == EnemyType.Shield)
+			trail = GameObject.Find("LWHead");
         /*
         else if (enemyData.type == EnemyType.Melee)
         {
@@ -133,7 +138,7 @@ public class EnemyBehavior : MonoBehaviour {
         canAttack = false;
     }
 
-    void Attack ()
+    void longAttack ()
     {
         posisi = new Vector3(transform.position.x - 7.716f, transform.position.y, 0);
         Vector3 weapon_position = new Vector3(posisi.x + 0.36F,
@@ -150,14 +155,12 @@ public class EnemyBehavior : MonoBehaviour {
     void startTrails()
     {
         //var trail = transform.Find("Core/_Body/_Right Shoulder/Right Shoulder/_RH Weapon/RH Weapon/Weapon Head");
-        var trail = GameObject.Find("Weapon Head");
         trail.GetComponent<TrailRenderer>().enabled = true;
     }
 
     void endTrails()
     {
         //var trail = transform.Find("Core/_Body/_Right Shoulder/Right Shoulder/_RH Weapon/RH Weapon/Weapon Head");
-        var trail = GameObject.Find("Weapon Head");
         trail.GetComponent<TrailRenderer>().enabled = false;
     }
 
@@ -195,6 +198,15 @@ public class EnemyBehavior : MonoBehaviour {
     void GetDamage(int damage)
     {
         darah -= damage;
-        if (darah <= 0) Destroy(gameObject);
+		if (darah <= 0)
+			Dead ();
     }
+
+	void Dead(){
+		Destroy (gameObject);
+	}
+
+	void Attack(){
+		player.gameObject.SendMessage ("HitDamage", 1, SendMessageOptions.DontRequireReceiver);
+	}
 }

@@ -177,11 +177,14 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+	//ShieldBehaviour shield;
 	void HitDamage(int value){
-		darah -= value;
-		if (darah <= 0) {
-			Destroy (gameObject);
-		}
-			
+		//shield = GetComponent<ShieldBehaviour> ();
+		//if (!shield.immortal) {
+			darah -= value;
+			if (darah <= 0) {
+				Destroy (gameObject);
+			}
+		//}
 	}
 }

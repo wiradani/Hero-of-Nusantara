@@ -9,7 +9,7 @@ public class WeaponBehavior : MonoBehaviour {
     public GameObject player;
     public GameObject enemy;
     public static EnemyType enemyType;
-    bool playerHit = false;
+   
     
 	// Use this for initialization
 	void Start () {
@@ -26,8 +26,9 @@ public class WeaponBehavior : MonoBehaviour {
         if (coll.gameObject.name=="Player")
         {
             hopping = false;
-            playerHit = true;
+           
             if(!ifParent) Destroy(this.gameObject);
+			player.gameObject.SendMessage ("HitDamage", 1, SendMessageOptions.DontRequireReceiver);
         }
     }
 
@@ -35,7 +36,7 @@ public class WeaponBehavior : MonoBehaviour {
     {
         //if (hopping) yield break;
 
-        //hopping = true;
+        hopping = true;
         var startPos = transform.position;
         var timer = 0.0f;
         Vector3 playerPost = new Vector3(player.GetComponent<Transform>().position.x,
@@ -53,5 +54,9 @@ public class WeaponBehavior : MonoBehaviour {
         }
         //hopping = false;
     }
+
+	void Dead(){
+		Destroy (gameObject);
+	}
 
 }
