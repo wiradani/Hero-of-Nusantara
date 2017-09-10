@@ -118,4 +118,15 @@ public class Framework_GameManager : MonoBehaviour
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
         StartCoroutine(Framework_MasterCamera.instance.DeleteCameras("MainMenu"));
     }
+
+    public void BackToMainMenu()
+    {
+        
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync("Musuh");
+        SceneManager.UnloadSceneAsync("Player");
+        StartCoroutine(Framework_MasterCamera.instance.DeleteCameras("MainMenu"));
+
+
+    }
 }
