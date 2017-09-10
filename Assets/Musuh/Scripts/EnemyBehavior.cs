@@ -212,8 +212,8 @@ public class EnemyBehavior : MonoBehaviour {
     }
 
 	void Dead(){
-		PlayerPrefs.SetInt("StageScore", PlayerPrefs.GetInt("StageScore")+score);
-		PlayerPrefs.SetInt("StageGold", PlayerPrefs.GetInt("StageGold")+gold);
+		Framework_GameManager.score+=score;
+		Framework_GameManager.gold+=gold;
 		Destroy (gameObject);
 	}
 

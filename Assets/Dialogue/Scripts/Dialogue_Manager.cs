@@ -283,7 +283,8 @@ public class Dialogue_Manager : MonoBehaviour
             , dialogueText));
 
 
-        Framework_GameManager.instance.GoToArena();
+      
+		Framework_GameManager.instance.GoToArena();
     }
 
     IEnumerator Act1_Lvl_2()

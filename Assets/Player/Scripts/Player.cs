@@ -86,7 +86,7 @@ public class Player : MonoBehaviour {
 		} else {
 			if (Input.GetMouseButton (0)) {
 				anim.Play ("Run");
-				rb.velocity = new Vector2 (-2f, 0);
+				rb.velocity = new Vector2 (-0.85f, 0);
 			} else if (Input.GetMouseButtonUp (0)) {
 				anim.Play ("Idle");
 				rb.velocity = new Vector2 (0, 0);
@@ -183,6 +183,7 @@ public class Player : MonoBehaviour {
 		//if (!shield.immortal) {
 			darah -= value;
 			if (darah <= 0) {
+				GameObject.FindObjectOfType<PopUpManager> ().GameOver();
 				Destroy (gameObject);
 			}
 		//}

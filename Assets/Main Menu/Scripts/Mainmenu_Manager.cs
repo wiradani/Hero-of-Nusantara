@@ -28,4 +28,8 @@ public class Mainmenu_Manager : MonoBehaviour
         selectLevel.SetActive(false);
         act1.SetActive(true);
     }
+
+	public void GoToCredit(){
+		Framework_GameManager.instance.ToCredit ();
+	}
 }

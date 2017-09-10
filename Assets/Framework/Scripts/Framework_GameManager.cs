@@ -9,7 +9,7 @@ public class Framework_GameManager : MonoBehaviour
     public static bool pause;
     public static Framework_GameManager instance;
 
-    public static int health;
+    public static int health,score,gold;
 
     public static Framework_PlayerData playerData;
     public static List<Framework_Weapon> weaponDatabase = new List <Framework_Weapon>();
@@ -37,7 +37,7 @@ public class Framework_GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+		Screen.orientation = ScreenOrientation.Landscape;
     }
 
     public void SetDatabase()
@@ -134,11 +134,22 @@ public class Framework_GameManager : MonoBehaviour
     public void BackToMainMenu()
     {
         
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync("Musuh");
-        SceneManager.UnloadSceneAsync("Player");
+		SceneManager.UnloadSceneAsync("Musuh");
+		SceneManager.UnloadSceneAsync("Player");
+		SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
+        
         StartCoroutine(Framework_MasterCamera.instance.DeleteCameras("MainMenu"));
-
-
     }
+
+	public void ToCredit(){
+		SceneManager.UnloadSceneAsync("MainMenu");
+		SceneManager.LoadScene("Setting", LoadSceneMode.Additive);
+		StartCoroutine(Framework_MasterCamera.instance.DeleteCameras("Setting"));
+	}
+
+	public void ToMainMenuFromCredit(){
+		SceneManager.UnloadSceneAsync("Setting");
+		SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
+		StartCoroutine(Framework_MasterCamera.instance.DeleteCameras("MainMenu"));
+	}
 }

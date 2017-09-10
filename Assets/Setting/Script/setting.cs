@@ -13,4 +13,8 @@ public class setting : MonoBehaviour {
 	void Update () {
 		
 	}
+
+	public void BackToMainMenu(){
+		Framework_GameManager.instance.ToMainMenuFromCredit ();
+	}
 }

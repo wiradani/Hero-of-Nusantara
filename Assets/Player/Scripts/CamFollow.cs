@@ -22,7 +22,9 @@ public class CamFollow : MonoBehaviour {
 	void Update () {
 		if (player == null) {
 			player = GameObject.FindObjectOfType<Player>();
+
 		}
-		gameObject.transform.position = player.transform.position + offset;
+		else 
+			gameObject.transform.position = player.transform.position + offset;
 	}
 }
