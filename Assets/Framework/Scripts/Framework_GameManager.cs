@@ -44,7 +44,7 @@ public class Framework_GameManager : MonoBehaviour
     {
 
         weaponDatabase.Add(new Framework_Weapon("sling", 0.1f, "Ketapel", false, 10));
-        weaponDatabase.Add(new Framework_Weapon("javelin", 0.5f, "Tombak", false, 20));
+        weaponDatabase.Add(new Framework_Weapon("sling2", 0.5f, "Ketapel Super", false, 20));
 
         costumeDatabase.Add(new Framework_CostumeData("default", "Default", 1));
         costumeDatabase.Add(new Framework_CostumeData("assasin", "Assasin", 1));
@@ -90,12 +90,19 @@ public class Framework_GameManager : MonoBehaviour
     public void GoToArena()
     {
         currentLevel = levelDatabase[2];
-        SceneManager.UnloadSceneAsync("MainMenu");
+        SceneManager.UnloadSceneAsync("Dialogue");
         SceneManager.LoadScene("Musuh", LoadSceneMode.Additive);
         StartCoroutine(Framework_MasterCamera.instance.DeleteCameras("Musuh"));
 
         SceneManager.LoadScene("Player", LoadSceneMode.Additive);
         StartCoroutine(Framework_MasterCamera.instance.DeleteCameras("Player"));
+    }
+
+    public void GoToDialogue()
+    {
+        SceneManager.UnloadSceneAsync("MainMenu");
+        SceneManager.LoadScene("Dialogue", LoadSceneMode.Additive);
+        StartCoroutine(Framework_MasterCamera.instance.DeleteCameras("Dialogue"));
     }
 
     public void GoToUpgrade()
