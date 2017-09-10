@@ -4,13 +4,38 @@ using UnityEngine;
 
 public class PopUpManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+	public GameObject pauseWindow, helpWindow;
+	public GameObject uiCanvas;
+
+	void HideCanvas(){
+		uiCanvas.SetActive (false);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	void ShowCanvas(){
+		uiCanvas.SetActive (true);
+	}
+
+	public void Pause(){
+		pauseWindow.SetActive(true);
+		Time.timeScale = 0;
+		HideCanvas ();
+	}
+	public void Resume(){
+		pauseWindow.SetActive (false);
+		Time.timeScale = 1;
+		ShowCanvas ();
+	}
+
+
+	public void OpenHelp(){
+		helpWindow.SetActive (true);
+		Time.timeScale = 0;
+		HideCanvas ();
+	}
+
+	public void CloseHelp(){
+		helpWindow.SetActive (false);
+		Time.timeScale = 1;
+		ShowCanvas ();
 	}
 }
