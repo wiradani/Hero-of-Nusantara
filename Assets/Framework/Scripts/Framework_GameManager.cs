@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Framework_GameManager : MonoBehaviour
 {
+
+    public static bool pause;
     public static Framework_GameManager instance;
 
     public static Framework_PlayerData playerData;
@@ -90,5 +92,12 @@ public class Framework_GameManager : MonoBehaviour
         SceneManager.UnloadSceneAsync("MainMenu");
         SceneManager.LoadScene("Upgrade", LoadSceneMode.Additive);
         StartCoroutine(Framework_MasterCamera.instance.DeleteCameras("Upgrade"));
+    }
+
+    public void BackFromUpgrade()
+    {
+        SceneManager.UnloadSceneAsync("Upgrade");
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
+        StartCoroutine(Framework_MasterCamera.instance.DeleteCameras("MainMenu"));
     }
 }
