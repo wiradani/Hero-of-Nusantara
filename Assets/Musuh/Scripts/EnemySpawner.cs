@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class EnemySpawner : MonoBehaviour {
     public EnemyBehavior enemy;
     public List<Framework_Enemy> enemyList = new List<Framework_Enemy>();
-    
+	public float waitTime;
+
     int randNum;
 	// Use this for initialization
 	void Start () {
@@ -20,7 +21,7 @@ public class EnemySpawner : MonoBehaviour {
     IEnumerator Wait()
     {
         waitActive = true;
-        yield return new WaitForSeconds(8.0F);
+		yield return new WaitForSeconds(waitTime);
         canSpawn = true;
         waitActive = false;
     }

@@ -10,7 +10,7 @@ public class PlayerManager : MonoBehaviour {
 
 
 	void Awake(){
-		
+		PlayerPrefs.SetInt ("StageScore", 0);
 		parent = Player.GetComponent<Transform> ();
 		parent.localScale = new Vector3 (0.5f, 0.5f, parent.localScale.z);
 		SceneManager.SetActiveScene (SceneManager.GetSceneByName ("Player"));

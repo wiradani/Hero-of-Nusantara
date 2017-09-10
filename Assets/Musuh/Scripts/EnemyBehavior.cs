@@ -15,9 +15,13 @@ public class EnemyBehavior : MonoBehaviour {
 	private GameObject trail;
     private Vector3 posisi;
 
+	public int score ,gold;
+
     //public static Enemy_BoneStructure bones = GameObject.Enemy_BoneStructure();
 	// Use this for initialization
 	void Start () {
+		score = 200;
+		gold = UnityEngine.Random.Range(0,50);
         enemy = this.gameObject;
         
         enemy.name = enemyData.id;
@@ -79,6 +83,11 @@ public class EnemyBehavior : MonoBehaviour {
         {
             transform.Translate(Vector3.left * speed * Time.deltaTime);
             enemyRun();
+			if (!aiAct) {
+				if (aiRun == true)
+					speed = enemyData.speed;
+				AICheck ();
+			}
         }
         else
         {
@@ -203,10 +212,49 @@ public class EnemyBehavior : MonoBehaviour {
     }
 
 	void Dead(){
+		PlayerPrefs.SetInt("StageScore", PlayerPrefs.GetInt("StageScore")+score);
+		PlayerPrefs.SetInt("StageGold", PlayerPrefs.GetInt("StageGold")+gold);
 		Destroy (gameObject);
 	}
 
 	void Attack(){
 		player.gameObject.SendMessage ("HitDamage", 1, SendMessageOptions.DontRequireReceiver);
+	}
+
+	public bool aiAct = false;
+	public bool aidle = false;
+	public bool aiRun = false;
+
+	void AISystems(){
+		var postCheck = new Vector3 (this.transform.position.x - player.transform.position.x,
+			               this.transform.position.y - player.transform.position.y, 0);
+		float aiRandom = UnityEngine.Random.Range (0f, 1f);
+		if (postCheck.x >= 30) {
+			if (aiRandom <= 0.2f)
+				AIRunning ();
+			else if (aiRandom <= 0.5f)
+				AIIdle ();
+		}
+
+	}
+
+	void AIIdle(){
+		aidle = true;
+		enemyIdle ();
+		StartCoroutine (Wait (1.5f));
+		aidle = false;
+	}
+
+	void AIRunning(){
+		aiRun = true;
+		speed *= 2;
+	}
+
+	IEnumerator AICheck(){
+		aiAct = true;
+		AISystems ();
+		yield return new WaitForSeconds (1f);
+		aiRun = false;
+		aiAct = false;
 	}
 }
