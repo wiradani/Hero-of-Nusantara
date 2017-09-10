@@ -9,6 +9,8 @@ public class Framework_GameManager : MonoBehaviour
     public static bool pause;
     public static Framework_GameManager instance;
 
+    public static int health;
+
     public static Framework_PlayerData playerData;
     public static List<Framework_Weapon> weaponDatabase = new List <Framework_Weapon>();
     public static List<Framework_CostumeData> costumeDatabase = new List<Framework_CostumeData>();
