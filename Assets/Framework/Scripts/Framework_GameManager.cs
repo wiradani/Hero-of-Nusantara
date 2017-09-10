@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Framework_GameManager : MonoBehaviour
 {
+
+    public static bool pause;
     public static Framework_GameManager instance;
 
     public static Framework_PlayerData playerData;
