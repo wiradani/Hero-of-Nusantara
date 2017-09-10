@@ -93,4 +93,11 @@ public class Framework_GameManager : MonoBehaviour
         SceneManager.LoadScene("Upgrade", LoadSceneMode.Additive);
         StartCoroutine(Framework_MasterCamera.instance.DeleteCameras("Upgrade"));
     }
+
+    public void BackFromUpgrade()
+    {
+        SceneManager.UnloadSceneAsync("Upgrade");
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
+        StartCoroutine(Framework_MasterCamera.instance.DeleteCameras("MainMenu"));
+    }
 }
