@@ -17,8 +17,12 @@ public class Framework_GameManager : MonoBehaviour
 
     public static Dictionary<string,Sprite> humanoidSpriteDatabase = new Dictionary<string, Sprite>();
     public static Dictionary<string, Sprite> enemySpriteDatabase = new Dictionary<string, Sprite>();
+    public static Dictionary<string, Sprite> weaponSpriteDatabase = new Dictionary<string, Sprite>();
 
     public static Framework_Level currentLevel;
+
+    public static AudioSource music;
+   
     // Use this for initialization
     void Awake()
     {
@@ -37,8 +41,8 @@ public class Framework_GameManager : MonoBehaviour
     public void SetDatabase()
     {
 
-        weaponDatabase.Add(new Framework_Weapon("sling", 0.1f, "Sling", false, 10));
-        weaponDatabase.Add(new Framework_Weapon("javelin", 0.5f, "Javelin", false, 20));
+        weaponDatabase.Add(new Framework_Weapon("sling", 0.1f, "Ketapel", false, 10));
+        weaponDatabase.Add(new Framework_Weapon("javelin", 0.5f, "Tombak", false, 20));
 
         costumeDatabase.Add(new Framework_CostumeData("default", "Default", 1));
         costumeDatabase.Add(new Framework_CostumeData("assasin", "Assasin", 1));
@@ -62,6 +66,11 @@ public class Framework_GameManager : MonoBehaviour
         z.Add(new Framework_Enemy("range_a1", "Range", 1f, EnemyType.Range, 15f));
         levelDatabase.Add(new Framework_Level("act1lvl3", z));
 
+        Sprite[] allWeapon = Resources.LoadAll<Sprite>("Player Weapons/");
+        foreach (Sprite aWeapon in allWeapon)
+        {
+            Framework_GameManager.weaponSpriteDatabase.Add(aWeapon.name, aWeapon);
+        }
 
         Sprite[] allCostume = Resources.LoadAll<Sprite>("Player Costume/");
         foreach (Sprite aCostume in allCostume)
