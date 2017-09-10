@@ -20,6 +20,7 @@ public class Framework_Humanoid : MonoBehaviour
         dynamicShoulder.sprite = Framework_GameManager.humanoidSpriteDatabase["player_" + Framework_GameManager.playerData.costume.id + "_dynamic_shoulder"];
         staticLeg.sprite = Framework_GameManager.humanoidSpriteDatabase["player_" + Framework_GameManager.playerData.costume.id + "_static_leg"];
         dynamicLeg.sprite = Framework_GameManager.humanoidSpriteDatabase["player_" + Framework_GameManager.playerData.costume.id + "_dynamic_leg"];
+        weapon.sprite = Framework_GameManager.weaponSpriteDatabase[Framework_GameManager.playerData.weapon.id];
     }
 	
     // Update is called once per frame

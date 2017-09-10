@@ -18,6 +18,11 @@ public class Mainmenu_Manager : MonoBehaviour
         Framework_GameManager.instance.GoToArena();
     }
 
+    public void GoToDialogue()
+    {
+        Framework_GameManager.instance.GoToDialogue();
+    }
+
     public void GoToAct1()
     {
         selectLevel.SetActive(false);
