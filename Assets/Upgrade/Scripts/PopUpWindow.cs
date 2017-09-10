@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PopUpWindow : MonoBehaviour {
 
-	public GameObject window;
+	public GameObject window;	
 	public Text messegeField;
 
 	public void Show(string messege){
